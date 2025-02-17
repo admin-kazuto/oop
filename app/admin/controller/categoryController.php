@@ -1,0 +1,27 @@
+<?php
+namespace App\admin\controller;
+use App\admin\Model\categoryModel;
+class CategoryController extends controller
+{
+    private $CategoryController; // Đổi tên biến cho rõ ràng
+
+    public function __construct()
+    {
+        $this->CategoryController = new categoryModel(); // Khởi tạo đối tượng productsModel
+    }
+
+
+    public function ListCategory()
+    {
+        $categoryModel = new categoryModel();
+        $categories = $categoryModel->getAll();
+        // include __DIR__ . '/../../resources/views/admin/category.php'; // Include file view
+        return $this->view('admin.category');
+    }
+
+    public function FormAddCategory(){
+        return $this-> view('admin.admin-add-category');
+    }
+}
+
+?>

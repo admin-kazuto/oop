@@ -1,0 +1,19 @@
+{
+    "name": "adminn/oop-version-2",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "admin-kazuto",
+            "email": "147340489+admin-kazuto@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "bramus/router": "^1.6",
+        "eftec/bladeone": "^4.17"
+    }
+}

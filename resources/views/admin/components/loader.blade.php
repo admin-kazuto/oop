@@ -1,0 +1,7 @@
+<div id="loading">
+    <div style="background-color: #fff;width: 100%;height: 100%;" class="loader simple-loader">
+        <div class="loader-body">
+            <img src="resources/public/images/loader.gif" alt="loader" class="light-loader img-fluid " width="50">
+        </div>
+    </div>
+</div>
