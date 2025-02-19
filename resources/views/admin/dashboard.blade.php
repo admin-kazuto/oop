@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
-
 @include('admin.components.header')
-
-<body class="  ">
+<body class="">
     <!-- loader Start -->
     @include('admin.components.loader')
     <!-- loader END -->

@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
+
+
+<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:17:08 GMT -->
+
 <?php echo $this->runChild('admin.components.header'); ?>
-<body class="">
+
+<body class="  ">
  <!-- loader Start -->
  <?php echo $this->runChild('admin.components.loader'); ?>
  <!-- loader END -->
@@ -9,256 +14,240 @@
  <main class="main-content">
  <?php echo $this->runChild('admin.components.nav'); ?>
  <div class="content-inner container-fluid pb-0" id="page_layout">
-
- <div id="content-page" class="content-page">
- <div class="container-fluid">
- <div class="row">
- <div class="col-md-6 col-lg-3 iq-counter">
- <div class="card card-block card-stretch card-height">
- <div class="card-body">
- <div class="d-flex align-items-center">
- <div class="rounded-circle p-1 bg-primary d-flex align-items-center justify-content-center"
- style="width:66px; height:66px; font-size: 22px;"><i class="ph ph-user text-white"></i>
- </div>
- <div class="text-left ms-3 mt-3">
- <h2><span class="counter">5000</span></h2>
- <h5>Users</h5>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-6 col-lg-3 iq-counter">
- <div class="card card-block card-stretch card-height">
- <div class="card-body">
- <div class="d-flex align-items-center">
- <div class="rounded-circle p-1 bg-danger d-flex align-items-center justify-content-center"
- style="width:66px; height:66px; font-size: 22px;"><i class="ph ph-book text-white"></i>
- </div>
- <div class="text-left ms-3 mt-3">
- <h2><span class="counter">4.8</span>k</h2>
- <h5>Books</h5>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-6 col-lg-3 iq-counter">
- <div class="card card-block card-stretch card-height">
- <div class="card-body">
- <div class="d-flex align-items-center">
- <div class="rounded-circle p-1 bg-warning d-flex align-items-center justify-content-center"
- style="width:66px; height:66px; font-size: 22px;"><i
- class="ph ph-shopping-cart text-white"></i>
- </div>
- <div class="text-left ms-3 mt-3">
- <h2><span class="counter">1.2</span>k</h2>
- <h5>Sale</h5>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-6 col-lg-3 iq-counter">
- <div class="card card-block card-stretch card-height">
- <div class="card-body">
- <div class="d-flex align-items-center">
- <div class="rounded-circle p-1 bg-info d-flex align-items-center justify-content-center"
- style="width:66px; height:66px; font-size: 22px;"><i
- class="ph ph-cell-tower text-white"></i></div>
- <div class="text-left ms-3 mt-3">
- <h2><span class="counter">690</span></h2>
- <h5>Orders</h5>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="col-md-4">
- <div class="card card-block card-stretch card-height">
- <div class="card-header d-flex justify-content-between align-items-center mb-0">
- <div class="header-title">
- <h4 class="card-title mb-0">Daily Sales</h4>
- </div>
- </div>
- <div class="card-body">
- <div id="iq-sale-chart"></div>
- </div>
- </div>
- </div>
- <div class="col-md-4">
- <div class="card card-block card-stretch card-height">
- <div class="card-header d-flex justify-content-between align-items-center mb-0">
- <div class="header-title">
- <h4 class="card-title mb-0">Summary</h4>
- </div>
- </div>
- <div class="card-body">
- <ul class="list-inline p-0 mb-0">
- <li>
- <div class="details mb-2">
- <span class="title">Income</span>
- <div class="percentage float-right text-primary">95 <span>%</span></div>
- <div class="progress bg-primary-subtle shadow-none w-100" style="height: 6px">
- <div class="progress-bar bg-primary" data-toggle="progress-bar"
- role="progressbar" aria-valuemin="0" aria-valuenow="90"></div>
- </div>
- </div>
- </li>
- <li>
- <div class="details mb-2">
- <span class="title">Profit</span>
- <div class="percentage float-right text-warning">72 <span>%</span></div>
- <div class="progress bg-warnig-subtle shadow-none w-100" style="height: 6px">
- <div class="progress-bar bg-warning" data-toggle="progress-bar"
- role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
- </div>
- </div>
- </div>
- </li>
- <li>
- <div class="details mb-2">
- <span class="title">Expenses</span>
- <div class="percentage float-right text-info">75 <span>%</span></div>
- <div class="progress bg-info-subtle shadow-none w-100" style="height: 6px">
- <div class="progress-bar bg-info" data-toggle="progress-bar" role="progressbar"
- aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
- </div>
- </div>
- </li>
- </ul>
- </div>
- </div>
- </div>
- <div class="col-md-4">
- <div class="card card-block card-stretch card-height">
- <div class="card-body">
- <h4 class="text-uppercase text-black mb-0">Session(Now)</h4>
- <div class="d-flex justify-content-between align-items-center">
- <div class="font-size-80 text-black" style="font-size:80px;">12</div>
- <div class="text-left">
- <p class="m-0 text-uppercase font-size-12">1 Hours Ago</p>
- <div class="mb-1 text-black">1500<span class="text-danger"><i
- class="ri-arrow-down-s-fill"></i>3.25%</span></div>
- <p class="m-0 text-uppercase font-size-12">1 Day Ago</p>
- <div class="mb-1 text-black">1890<span class="text-success"><i
- class="ri-arrow-down-s-fill"></i>1.00%</span></div>
- <p class="m-0 text-uppercase font-size-12">1 Week Ago</p>
- <div class="text-black">1260<span class="text-danger"><i
- class="ri-arrow-down-s-fill"></i>9.87%</span></div>
- </div>
- </div>
- <div id="wave-chart-7"></div>
- </div>
- </div>
- </div>
+ <div class="row ">
  <div class="col-sm-12">
- <div class="card card-block card-stretch card-height">
- <div class="card-header d-flex justify-content-between align-items-center mb-0">
- <div class="header-title">
- <h4 class="card-title">Open Invoices</h4>
+ <div class="card">
+ <div class="card-header d-flex justify-content-between align-items-center position-relative">
+ <div class="iq-header-title">
+ <h4 class="mb-0">Category Lists</h4>
  </div>
- <div class="card-header-toolbar d-flex align-items-center">
- <div class="card-header-toolbar d-flex align-items-center">
- <div class="dropdown">
- <span id="post-dropdown-02" data-bs-toggle="dropdown" aria-expanded="false"
- role="button" class="">
- <i class="ri ri-more-fill"></i>
- </span>
- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="post-dropdown-02">
- <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
- class="ph ph-eye mr-2"></i> View</a>
- <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
- class="ph ph-trash mr-2"></i>
- Delete</a>
- <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
- class="ph ph-pencil-simple mr-2"></i> Edit</a>
- <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
- class="ph ph-printer mr-2"></i> Print</a>
- <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
- class="ph ph-file-arrow-down mr-2"></i>
- Download</a>
- </div>
- </div>
- </div>
+ <div class="iq-card-header-toolbar d-flex align-items-center">
+ <a href="/oop-version-2/admin-add-category" class="btn btn-primary">Add New
+ Category</a>
  </div>
  </div>
  <div class="card-body">
- <div class="table-responsive">
- <table class="table mb-0 table-borderless table-striped">
- <thead>
- <tr>
- <th scope="col">Client</th>
- <th scope="col">Date</th>
- <th scope="col">Invoice</th>
- <th scope="col">Amount</th>
- <th scope="col">Status</th>
- <th scope="col">Action</th>
-
+ <div class="custom-table-effect table-responsive custom-table-search ">
+ <table class=" mb-0 table table-bordered custom-datatable-border" id="datatable"
+ data-toggle="data-table">
+ <thead class="">
+ <tr class="bg-white">
+ <th scope="col" class="border-bottom bg-primary text-white">No</th>
+ <th scope="col" class="border-bottom bg-primary text-white">Category Name</th>
+ <th scope="col" class="border-bottom bg-primary text-white custom-column-width">Category
+ Description</th>
+ <th scope="col" class="border-bottom bg-primary text-white">Action</th>
  </tr>
  </thead>
  <tbody>
  <tr>
- <td>Ira Membrit</td>
- <td>18/10/2019</td>
- <td>20156</td>
- <td>$1500</td>
+ <td>1</td>
+ <td>General Books</td>
  <td>
- <div class="badge badge-pill bg-success">Paid</div>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
  </td>
- <td>Copy</td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
  </tr>
  <tr>
- <td>Pete Sariya</td>
- <td>26/10/2019</td>
- <td>7859</td>
- <td>$2000</td>
+ <td>2</td>
+ <td>History Books</td>
  <td>
- <div class="badge badge-pill bg-success">Paid</div>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
  </td>
- <td>Send Email</td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
  </tr>
  <tr>
- <td>Cliff Hanger</td>
- <td>18/11/2019</td>
- <td>6396</td>
- <td>$2500</td>
+ <td>3</td>
+ <td>Horror Story</td>
  <td>
- <div class="badge badge-pill bg-danger">Past Due</div>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
  </td>
- <td>Before Due</td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
  </tr>
  <tr>
- <td>Terry Aki</td>
- <td>14/12/2019</td>
- <td>7854</td>
- <td>$5000</td>
+ <td>4</td>
+ <td>Arts Books</td>
  <td>
- <div class="badge badge-pill bg-success">Paid</div>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
  </td>
- <td>Copy</td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
  </tr>
  <tr>
- <td>Anna Mull</td>
- <td>24/12/2019</td>
- <td>568569</td>
- <td>$10000</td>
+ <td>5</td>
+ <td>Film & Photography</td>
  <td>
- <div class="badge badge-pill bg-success">Paid</div>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
  </td>
- <td>Send Email</td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>6</td>
+ <td>Business & Economics</td>
+ <td class="">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ </td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>7</td>
+ <td>Comics & Mangas</td>
+ <td class="">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ </td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>8</td>
+ <td>Computers & Internet</td>
+ <td class="">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ </td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>9</td>
+ <td>Sports</td>
+ <td class="">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ </td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>10</td>
+ <td>Travel & Tourism</td>
+ <td class="">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
+ scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ </td>
+ <td>
+ <div class="d-flex gap-1 align-items-center list-user-action">
+ <a class="bg-success-subtle   rounded" data-toggle="tooltip"
+ data-placement="top" title="Edit" href="#">
+ <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+ </a>
+ <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+ data-placement="top" title="Delete" href="#">
+ <i class="ph ph-trash text-danger custom-ph-icons"></i>
+ </a>
+ </div>
+ </td>
  </tr>
  </tbody>
  </table>
  </div>
  </div>
- </div>
- </div>
- </div>
- </div>
- </div>
 
-
+ </div>
+ </div>
+ </div>
  </div>
  <!-- Footer Section Start -->
  <?php echo $this->runChild('admin.components.footer'); ?>
@@ -709,10 +698,10 @@
  </svg>
  </a> <!-- Live Customizer end -->
  <!-- Wrapper End-->
-
-
  <?php echo $this->runChild('admin.components.script'); ?>
-
 </body>
+
+
+<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:17:08 GMT -->
 
 </html>

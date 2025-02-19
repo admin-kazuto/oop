@@ -1,10 +1,9 @@
 <aside class="sidebar sidebar-base " id="first-tour" data-toggle="main-sidebar"
     data-sidebar="responsive">
     <div class="sidebar-header d-flex align-items-center justify-content-start position-relative">
-        <a href="../index-2.html" class="navbar-brand">
+        <a href="" class="navbar-brand">
             <!--Logo start-->
             <div class="logo-main ">
-
                 <img class="logo-normal img-fluid "
                     src="resources/public/images/logo.png" height="30" alt="logo">
                 <img class="logo-color img-fluid "
@@ -13,7 +12,6 @@
                     src="resources/public/images/logo-mini.png" alt="logo">
                 <img class="logo-mini-white img-fluid"
                     src="resources/public/images/logo-mini-white.png" alt="logo">
-
             </div>
             <!--logo End-->
         </a>
@@ -41,7 +39,7 @@
                 <li class="nav-item">
                     <a class="nav-link "
                         aria-current="page"
-                        href="/oop-version-2/">
+                        href="/">
                         <i class="icon" data-bs-toggle="tooltip" title="Home Page"
                             data-bs-placement="right">
                             <i class="ph-duotone ph-house"></i>
@@ -73,10 +71,10 @@
                     <ul class="sub-nav collapse" id="Admin" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
                             <a
-                                class="nav-link <?= ($currentURL === '/oop-version-2/dashboard') ? 'active' : '' ?>"
+                                class="nav-link <?= ($currentURL === '/dashboard') ? 'active' : '' ?>"
                                 <?php echo $currentURL ?>
                                 aria-current="page"
-                                href="/oop-version-2/">
+                                href="/">
                                 <i class="icon" data-bs-toggle="tooltip" title="Dashboard"
                                     data-bs-placement="right">
                                     <i class="ph-duotone ph-gauge"></i>
@@ -89,9 +87,9 @@
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link <?= ($currentURL === '/oop-version-2/category' || $currentURL === '/oop-version-2/admin-add-category') ? 'active' : '' ?> "
+                                class="nav-link <?= ($currentURL === '/category' || $currentURL === '/admin-add-category') ? 'active' : '' ?> "
                                 aria-current="page"
-                                href="/oop-version-2/category">
+                                href="/category">
                                 <i class="icon" data-bs-toggle="tooltip"
                                     title="Category List" data-bs-placement="right">
                                     <i class="ph-duotone ph-list-plus"></i>
@@ -104,9 +102,9 @@
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link <?= ($currentURL === '/oop-version-2/author' || $currentURL === '/oop-version-2/admin-add-author') ? 'active' : '' ?>"
+                                class="nav-link <?= ($currentURL === '/author' || $currentURL === '/admin-add-author') ? 'active' : '' ?>"
                                 aria-current="page"
-                                href="/oop-version-2/author">
+                                href="/author">
                                 <i class="icon" data-bs-toggle="tooltip" title="Authors"
                                     data-bs-placement="right">
                                     <i class="ph-duotone ph-identification-badge"></i>
@@ -118,9 +116,9 @@
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link <?= ($currentURL === '/oop-version-2/books' || $currentURL === '/oop-version-2/admin-add-book') ? 'active' : '' ?> "
+                                class="nav-link <?= ($currentURL === '/books' || $currentURL === '/admin-add-book') ? 'active' : '' ?> "
                                 aria-current="page"
-                                href="/oop-version-2/books">
+                                href="/books">
                                 <i class="icon" data-bs-toggle="tooltip" title="Books"
                                     data-bs-placement="right">
                                     <i class="ph-duotone ph-book-bookmark"></i>
@@ -133,9 +131,9 @@
 
                         <li class="nav-item">
                             <a
-                                class="nav-link <?= ($currentURL === '/oop-version-2/bill') ? 'active' : '' ?> "
+                                class="nav-link <?= ($currentURL === '/bill') ? 'active' : '' ?> "
                                 aria-current="page"
-                                href="/oop-version-2/bill">
+                                href="/bill">
                                 <i class="icon" data-bs-toggle="tooltip" title="Bills"
                                     data-bs-placement="right">
                                     <i class="ph-duotone ph-clipboard"></i>

@@ -1,6 +1,7 @@
 RewriteEngine On
-# Nếu truy cập trực tiếp vào file hoặc thư mục thì cho phép
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# Chuyển hướng toàn bộ request về index.php
-RewriteRule ^ index.php [QSA,L]
+RewriteRule . /index.php [L]

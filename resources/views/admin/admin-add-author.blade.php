@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
 @include('admin.components.header')
-
 <body class="  ">
     <!-- loader Start -->
     @include('admin.components.loader')
@@ -422,8 +421,6 @@
             </nav> <!--Nav End-->
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout">
-
-
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">

@@ -1,21 +1,36 @@
-<?php 
+<?php
+
 namespace App\admin\Controller;
+
 use App\admin\Model\AuthorModel;
-class AuthorController extends controller{
+
+class AuthorController extends controller
+{
     private $AuthorController;
-    public function __construct(){
-        $this -> AuthorController = new AuthorModel();
+    public function __construct()
+    {
+        $this->AuthorController = new AuthorModel();
     }
 
-    public function ListAuthor(){
-        $authorModel = new AuthorModel();
-        $author = $authorModel-> getAll();
-        return $this-> view('admin.author');
+    public function ListAuthor()
+    {
+        $author = $this->AuthorController->getAll();
+        return $this->view('admin.author');
     }
-
-    public function add($params){
-        $authorModel = new AuthorModel();
-        
+    public function FormAddAuthor(){
+        return $this->view('admin.author');
+    }
+    public function Add($params)
+    {
+        if (isset($_POST['add_author'])) {
+            $params = [];
+            foreach ($_POST as $key => $value) {
+                if ($key != 'add_author') {
+                    $params[] = $value;
+                }
+            }
+            $this->AuthorController->add($params);
+        }
+        return $this->view('admin.author');
     }
 }
-?>

@@ -6,11 +6,11 @@ use App\admin\Model\Model;
 
 interface CRUDBaseModels
 {
-    public function add($params);
-    public function delete($params);
-    public function update($params);
-    public function getId($params);
-    public function getAll();
+    public function Add($params);
+    public function Delete($params);
+    public function Update($params);
+    public function GetId($params);
+    public function GetAll();
 }
 
 abstract class baseModels extends Model implements CRUDBaseModels

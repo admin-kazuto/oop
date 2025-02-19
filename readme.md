@@ -90,3 +90,4 @@ License
 
 This project uses open-source libraries under the MIT and Apache-2.0 licenses.
 
+composer dump-autoload

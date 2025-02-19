@@ -3,7 +3,7 @@ namespace App\admin\model; // Sửa namespace thành App\Models
 
 use App\admin\Model\baseModels;
 
-class productsModel extends baseModels 
+class BooksModel extends baseModels 
 {
     protected $table = 'books';
     public function __construct()
