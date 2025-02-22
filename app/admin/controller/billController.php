@@ -13,8 +13,7 @@ class BillController extends controller
     }
     public function ListBill()
     {
-        $BillModels = new BillModel();
-        $Bills = $BillModels->getAll();
+        $Bills = $this -> BillController -> getAll();
         return $this->view('admin.bill');
     }
 }

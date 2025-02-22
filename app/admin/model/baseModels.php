@@ -36,24 +36,21 @@ abstract class baseModels extends Model implements CRUDBaseModels
     }
     // Thao tác với CSDL 
     // Thêm
-    public function add($params)
+    public function Add($params)
     {
-        $sql = "INSERT INTO {$this->table} VALUES (?,?,?,?)";
-        $this->setSQL($sql);
+        $this->setSQL("INSERT INTO {$this->table} VALUES (?,?,?,?,?,?,?)");
         return $this->execute([$params]);
     }
     // Sửa
-    public function update($params)
+    public function Update($params)
     {
-        $sql = "UPDATE {$this->table} SET product_name = ?, gia = ?, mo_ta = ? WHERE product_id = ?";
-        $this->setSQL($sql);
+        $this->setSQL("UPDATE {$this->table} SET product_name = ?, gia = ?, mo_ta = ? WHERE product_id = ?");
         return $this->execute([$params]);
     }
     // Xóa
-    public function delete($params)
+    public function Delete($params)
     {
-        $sql = "DELETE FROM {$this->table} WHERE product_id =?";
-        $this->setSQL($sql);
+        $this->setSQL("DELETE FROM {$this->table} WHERE product_id =?");
         return $this->execute([$params]);
     }
 

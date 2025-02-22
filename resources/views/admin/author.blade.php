@@ -19,7 +19,7 @@
                                 <h4 class="mb-0">Author Lists</h4>
                             </div>
                             <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <a href="admin-add-author.html" class="btn btn-primary">Add New Author</a>
+                                <a href="{{ route('form-add-author') }}" class="btn btn-primary">Add New Author</a>
                             </div>
                         </div>
                         <div class="card-body">

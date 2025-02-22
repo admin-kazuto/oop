@@ -50,6 +50,8 @@ class  Model{
                     // Sử dụng bindValue để tự động xác định KDL
                 }
             }
+            // var_dump($this);
+            
             $this->sta->execute();
             return $this->sta;
         }catch(PDOException $ex){

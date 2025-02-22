@@ -22,7 +22,7 @@
                                 <h4 class="mb-0">Category Lists</h4>
                             </div>
                             <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <a href="/oop-version-2/admin-add-category" class="btn btn-primary">Add New
+                                <a href="{{ route('form-add-category') }}" class="btn btn-primary">Add New
                                     Category</a>
                             </div>
                         </div>

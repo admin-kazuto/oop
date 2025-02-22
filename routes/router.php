@@ -57,16 +57,24 @@ $router->mount('', function () use (
         $bookController->ListBooks();
     });
 
-    $router->get('/admin-add-book', function () use ($bookController) {
+    $router->get('/form-add-book', function () use ($bookController) {
         $bookController->FormAddBook();
+    });
+
+    $router->post('/add-book', function () use ($bookController) {
+        $bookController->AddBook();
     });
 
     $router->get('/category', function () use ($categoryController) {
         $categoryController->ListCategory();
     });
 
-    $router->get('/admin-add-category', function () use ($categoryController) {
+    $router->get('/form-add-category', function () use ($categoryController) {
         $categoryController->FormAddCategory();
+    });
+
+    $router->post('/add-category', function () use ($categoryController) {
+        $categoryController->AddCategory();
     });
 
     $router->get('/bill', function () use ($billController) {
@@ -77,8 +85,12 @@ $router->mount('', function () use (
         $authorController->ListAuthor();
     });
 
-    $router->get('/admin-add-author', function () use ($authorController) {
+    $router->get('/form-add-author', function () use ($authorController) {
         $authorController->FormAddAuthor();
+    });
+
+    $router->post('/add-author', function () use ($authorController) {
+        $authorController->AddAuthor();
     });
 
     $router->get('/', function () use ($homeController) {

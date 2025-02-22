@@ -1,9 +1,10 @@
 <?php
+
 namespace App\admin\model; // Sửa namespace thành App\Models
 
 use App\admin\Model\baseModels;
 
-class BooksModel extends baseModels 
+class BooksModel extends baseModels
 {
     protected $table = 'books';
     public function __construct()
@@ -11,8 +12,28 @@ class BooksModel extends baseModels
         parent::__construct();
     }
 
-    public function add($params){
-        $sql = "insert into {$this-> table} values (null, :name, :price, :description, :image, :category_id)";
-        return $this->execute($sql, $params);
+    public function GetAllWithCategoryAndAuthor()
+    {
+        $sql = "SELECT {$this->table}.*, categories.name AS category_name, authors.name AS author_name FROM books JOIN categories ON books.category_id = categories.category_id JOIN authors ON books.author_id = authors.author_id;";
+        $this->setSQL($sql);
+        return $this->all();
+    }
+
+    public function GetAllCategories()
+    {
+        $this->setSQL("SELECT * FROM categories");
+        return $this->all();
+    }
+
+    public function GetAllAuthor()
+    {
+        $this->setSQL("SELECT * FROM authors");
+        return $this->all();
+    }
+
+    public function AddBook($params)
+    {
+        $this->setSQL("INSERT INTO {$this->table} (title, author_id, category_id, price, quantity,description ,image) VALUES (?,?,?,?,?,?,?)");
+        return $this->execute($params); 
     }
 }

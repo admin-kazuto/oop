@@ -1,6 +1,9 @@
 <?php
+
 namespace App\admin\controller;
+
 use App\admin\model\BooksModel;
+
 class BookController extends controller
 {
     private $BookController;
@@ -11,29 +14,37 @@ class BookController extends controller
 
     public function ListBooks()
     {
-        $BooksModel = new BooksModel();
-        $Books = $BooksModel->getAll(); // Gọi phương thức getAllProducts
-        return $this-> view('admin.books');
+        $Books = $this->BookController->GetAll();
+        return $this->view('admin.books');
     }
 
-    public function FormAddBook(){
-        return $this->view('admin.admin-add-book');
+    public function FormAddBook()
+    {
+        $ListCategories = $this->BookController->GetAllCategories();
+        $ListAuthor = $this->BookController->GetAllAuthor();
+        return $this->view('admin.admin-add-book', compact('ListCategories', 'ListAuthor'));
     }
 
-    public function Add($params){
-        if(isset($_POST['add_product'])){
-            $params=[];
-            foreach($_POST as $key => $value){
-                if($key != 'add_product'){
+    public function AddBook()
+    {
+        if (isset($_POST['save'])) {
+            $params = [];
+            foreach ($_POST as $key => $value) {
+                if ($key != 'save') {
                     $params[] = $value;
                 }
             }
-            $this->BookController->add($params);
-
+            if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+                $uploadDir = __DIR__ . '/../../../resources/public/images/upload/';
+                $fileName = basename($_FILES['image']['name']);
+                $uploadFile = $uploadDir . $fileName;
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                    $params[] = $fileName;
+                } else {
+                    $params[] = null;
+                }
+            }
+            $this->BookController->AddBook($params);
         }
     }
-
-    
 }
-
-?>

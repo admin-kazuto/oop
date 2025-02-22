@@ -87,7 +87,7 @@
  </li>
  <li class="nav-item">
  <a
- class="nav-link <?= ($currentURL === '/category' || $currentURL === '/admin-add-category') ? 'active' : '' ?> "
+ class="nav-link <?= ($currentURL === '/category' || $currentURL === '/form-add-category') ? 'active' : '' ?> "
  aria-current="page"
  href="/category">
  <i class="icon" data-bs-toggle="tooltip"
@@ -102,7 +102,7 @@
  </li>
  <li class="nav-item">
  <a
- class="nav-link <?= ($currentURL === '/author' || $currentURL === '/admin-add-author') ? 'active' : '' ?>"
+ class="nav-link <?= ($currentURL === '/author' || $currentURL === '/form-add-author') ? 'active' : '' ?>"
  aria-current="page"
  href="/author">
  <i class="icon" data-bs-toggle="tooltip" title="Authors"
@@ -116,7 +116,7 @@
  </li>
  <li class="nav-item">
  <a
- class="nav-link <?= ($currentURL === '/books' || $currentURL === '/admin-add-book') ? 'active' : '' ?> "
+ class="nav-link <?= ($currentURL === '/books' || $currentURL === '/form-add-book') ? 'active' : '' ?> "
  aria-current="page"
  href="/books">
  <i class="icon" data-bs-toggle="tooltip" title="Books"

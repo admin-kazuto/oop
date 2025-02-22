@@ -1,6 +1,3 @@
-
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -90,5 +87,6 @@
     </link>
     <link rel="stylesheet" href="vendor/phosphor-icons/Fonts/fill/style.css">
     </link>
-
+    <script src="resources/public/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="resources/public/sweetalert2/sweetalert2.min.css">
 </head>

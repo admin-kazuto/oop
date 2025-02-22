@@ -9,7 +9,6 @@
  <main class="main-content">
  <?php echo $this->runChild('admin.components.nav'); ?>
  <div class="content-inner container-fluid pb-0" id="page_layout">
-
  <div id="content-page" class="content-page">
  <div class="container-fluid">
  <div class="row">

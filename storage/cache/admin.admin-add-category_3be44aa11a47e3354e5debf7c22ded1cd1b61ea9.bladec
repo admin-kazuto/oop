@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
 <?php echo $this->runChild('admin.components.header'); ?>
-
 <body class="  ">
  <!-- loader Start -->
  <?php echo $this->runChild('admin.components.loader'); ?>
@@ -15,54 +14,22 @@
  <div class="card">
  <div class="card-header d-flex justify-content-between align-items-center position-relative">
  <div class="iq-header-title">
- <h4 class="mb-0">Add New Books</h4>
+ <h4 class="mb-0">Add New Category</h4>
  </div>
  </div>
  <div class="card-body">
- <form method="post" action="<?php echo \htmlentities(route('add-book')??'', ENT_QUOTES, 'UTF-8', false); ?>" enctype="multipart/form-data">
+ <form action="#">
  <div class="form-group">
- <label>Book Name:</label>
- <input name="name" type="text" class="form-control p-2 bg-white border">
+ <label>Category Name:</label>
+ <input type="text" class="form-control p-2 bg-white border">
  </div>
  <div class="form-group">
- <label>Book Author:</label>
- <select name="author" class="select2-basic-single">
- <?php foreach ($ListAuthor as $author) { ?>
- <option value="<?php echo \htmlentities($author->author_id??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($author->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
- <?php } ?>
- </select>
-
- </div>
- <div class="form-group">
- <label>Book Category:</label>
-
- <select name="category" class="select2-basic-single">
- <?php foreach ($ListCategories as $category) { ?>
- <option value="<?php echo \htmlentities($category->category_id??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($category->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
- <?php } ?>
- </select>
-
- </div>
-
- <div class="form-group">
- <label>Book Image:</label>
- <input name="image" type="file" class="form-control p-2 bg-white border">
- </div>
- <div class="form-group">
- <label>Book Price:</label>
- <input name="price" type="text" class="form-control p-2 bg-white border">
- </div>
- <div class="form-group">
- <label>Quantity Book</label>
- <input name="quantity" type="text" class="form-control p-2 bg-white border">
- </div>
- <div class="form-group">
- <label>Book Description:</label>
- <textarea name="description" type="text" class="form-control bg-white border"></textarea>
+ <label>Category Description:</label>
+ <textarea type="text" class="form-control  bg-white border"></textarea>
  </div>
  <div class="d-flex gap-2">
- <button name="reset" type="submit" class="btn btn-danger">Reset</button>
- <button name="save" type="submit" class="btn btn-primary">Save</button>
+ <button type="submit" class="btn btn-danger">Reset</button>
+ <button type="submit" class="btn btn-primary">Save</button>
  </div>
  </form>
  </div>
@@ -520,13 +487,10 @@
  stroke-linejoin="round"></circle>
  </svg>
  </a> <!-- Live Customizer end -->
- <!-- Wrapper End-->
 
-
- <?php echo $this->runChild('admin.components.script'); ?>
 </body>
 
-
-<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/admin-add-book.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:18:21 GMT -->
+<?php echo $this->runChild('admin.components.script'); ?>
+<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/admin-add-category.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:18:21 GMT -->
 
 </html>

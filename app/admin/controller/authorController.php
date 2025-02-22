@@ -18,9 +18,9 @@ class AuthorController extends controller
         return $this->view('admin.author');
     }
     public function FormAddAuthor(){
-        return $this->view('admin.author');
+        return $this->view('admin.admin-add-author');
     }
-    public function Add($params)
+    public function AddAuthor()
     {
         if (isset($_POST['add_author'])) {
             $params = [];
