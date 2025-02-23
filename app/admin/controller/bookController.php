@@ -14,8 +14,8 @@ class BookController extends controller
 
     public function ListBooks()
     {
-        $Books = $this->BookController->GetAll();
-        return $this->view('admin.books');
+        $Books = $this->BookController->GetAllWithCategoryAndAuthor();
+        return $this->view('admin.books', compact('Books'));
     }
 
     public function FormAddBook()
@@ -27,7 +27,7 @@ class BookController extends controller
 
     public function AddBook()
     {
-        if (isset($_POST['save'])) {
+        if (isset($_POST['save']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
             $params = [];
             foreach ($_POST as $key => $value) {
                 if ($key != 'save') {
@@ -44,7 +44,18 @@ class BookController extends controller
                     $params[] = null;
                 }
             }
-            $this->BookController->AddBook($params);
+            if (count($params) == 7 && !empty($params[0]) && !empty($params[1]) && !empty($params[2]) && !empty($params[3]) && !empty($params[4]) && !empty($params[5]) && !empty($params[6])) {
+                $this->BookController->AddBook($params);
+                notification('success', 'Thêm sách thành công', 'form-add-book');
+            } else {
+                notification('error', 'Vui lòng nhập đầy đủ thông tin', 'form-add-book');
+            }
         }
     }
+
+    public function UpdateBook($id) {
+        
+    }
+
+    public function DeleteBook($id) {}
 }

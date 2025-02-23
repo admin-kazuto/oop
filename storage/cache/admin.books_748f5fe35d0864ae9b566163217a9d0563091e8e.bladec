@@ -33,300 +33,78 @@
  <th scope="col" class="border-bottom bg-primary text-white">No</th>
  <th scope="col" class="border-bottom bg-primary text-white">Book Image</th>
  <th scope="col" class="border-bottom bg-primary text-white">Book Name</th>
- <th scope="col" class="border-bottom bg-primary text-white">Book Catrgory</th>
+ <th scope="col" class="border-bottom bg-primary text-white">Book Catergory</th>
  <th scope="col" class="border-bottom bg-primary text-white">Book Author</th>
  <th scope="col" class="border-bottom bg-primary text-white description-column">Book
  Description</th>
  <th scope="col" class="border-bottom bg-primary text-white">Book Price</th>
- <th scope="col" class="border-bottom bg-primary text-white">Book pdf</th>
+
  <th scope="col" class="border-bottom bg-primary text-white">Action</th>
  </tr>
  </thead>
  <tbody>
+ <?php foreach ($Books as $book): ?>
  <tr>
- <td>1</td>
- <td><img src="../assets/images/browse-books/01.jpg" class="img-fluid rounded"
+ <td><?php echo \htmlentities($book->book_id??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><img src="resources/public/images/upload/<?php echo \htmlentities($book->image??'', ENT_QUOTES, 'UTF-8', false); ?>" class="img-fluid rounded"
  alt=""></td>
- <td>Reading on the Worlds</td>
- <td>General Books</td>
- <td>Jhone Steben</td>
+ <td><?php echo \htmlentities($book->title??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($book->category_name??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($book->author_name??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+ <?php echo \htmlentities($book->description??'', ENT_QUOTES, 'UTF-8', false); ?>
+
  </td>
- <td>$89</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
+ <td><?php echo number_format($book->price, 0, ',', '.') ?>vnđ</td>
  <td>
  <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
+ <!-- <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
  title="Edit" href="#">
  <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>2</td>
- <td><img src="../assets/images/browse-books/02.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>The Catcher in the Rye</td>
- <td>History Books</td>
- <td>Fritz Wold</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$89</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle  rounded" data-toggle="tooltip" data-placement="top"
- title="Edit" href="#">
+ </a> -->
+ <a class="bg-success-subtle rounded edit-btn" data-id="<?php echo \htmlentities($book->book_id??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ data-title="<?php echo \htmlentities($book->title??'', ENT_QUOTES, 'UTF-8', false); ?>" data-price="<?php echo \htmlentities($book->price??'', ENT_QUOTES, 'UTF-8', false); ?>" data-description="<?php echo \htmlentities($book->description??'', ENT_QUOTES, 'UTF-8', false); ?>" data-category="<?php echo \htmlentities($book->category_name??'', ENT_QUOTES, 'UTF-8', false); ?>" data-author="<?php echo \htmlentities($book->author_name??'', ENT_QUOTES, 'UTF-8', false); ?>" data-toggle="tooltip" data-placement="top" title="" href="#">
  <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
  </a>
  <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
+ data-placement="top" title="Delete" href="<?php echo \htmlentities(route('delete-book', $book->book_id)??'', ENT_QUOTES, 'UTF-8', false); ?>">
  <i class="ph ph-trash text-danger custom-ph-icons"></i>
  </a>
  </div>
  </td>
  </tr>
-
- <tr>
- <td>3</td>
- <td><img src="../assets/images/browse-books/03.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>Little Black Book</td>
- <td>Comic Books</td>
- <td>John Klok</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$129</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle  rounded" data-toggle="tooltip" data-placement="top"
- title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>4</td>
- <td><img src="../assets/images/browse-books/04.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>Take On The Risk</td>
- <td>General Books</td>
- <td>George Strong</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$89</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle   rounded" data-toggle="tooltip"
- data-placement="top" title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>5</td>
- <td><img src="../assets/images/browse-books/05.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>Absteact On Background</td>
- <td>Film & Photography</td>
- <td>Ichae Semos</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$99</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle  rounded" data-toggle="tooltip" data-placement="top"
- title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>6</td>
- <td><img src="../assets/images/browse-books/06.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>Find The Wave Book</td>
- <td>General Books</td>
- <td>Fidel Martin</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$99</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle px-1   rounded" data-toggle="tooltip"
- data-placement="top" title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn px-1 rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>7</td>
- <td><img src="../assets/images/browse-books/07.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>See the More Story</td>
- <td>Horror Story</td>
- <td>Jules Boutin</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$79</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle    rounded" data-toggle="tooltip"
- data-placement="top" title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>8</td>
- <td><img src="../assets/images/browse-books/08.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>The Wikde Book</td>
- <td>Computers & Internet</td>
- <td>Kusti Franti</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$89</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle   rounded" data-toggle="tooltip"
- data-placement="top" title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>9</td>
- <td><img src="../assets/images/browse-books/09.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>Conversion Erik Routley</td>
- <td>Sports</td>
- <td>Argele Intili</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$79</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle  rounded" data-toggle="tooltip" data-placement="top"
- title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
- <tr>
- <td>10</td>
- <td><img src="../assets/images/browse-books/10.jpg" class="img-fluid rounded"
- alt=""></td>
- <td>The Leo Dominica</td>
- <td>General Books</td>
- <td>Henry Jurk</td>
- <td class="description-column">
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
- scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
- </td>
- <td>$99</td>
- <td><a href="../shop/book-pdf.html"><i
- class="ri ri-file-fill text-secondary font-size-18"></i></a></td>
- <td>
- <div class="d-flex gap-1 align-items-center list-user-action">
- <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
- title="Edit" href="#">
- <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
- </a>
- <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
- data-placement="top" title="Delete" href="#">
- <i class="ph ph-trash text-danger custom-ph-icons"></i>
- </a>
- </div>
- </td>
- </tr>
-
+ <?php endforeach ?>
  </tbody>
  </table>
  </div>
  </div>
+ <!-- Form sửa sách (Ẩn mặc định) -->
+ <div class="edit-book-form" id="editBookForm" style="display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%);
+ background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; width: 400px;">
+ <form>
+ <h5 id="formHeader">Chỉnh sửa sách</h5> <!-- Thêm id để dễ dàng truy cập -->
+ <input type="hidden" id="bookId">
+ <div class="form-group">
+ <label for="bookTitle">Book Name:</label>
+ <input type="text" class="form-control" id="bookTitle">
+ </div>
+ <div class="form-group">
+ <label for="bookAuthor">Author:</label>
+ <input type="text" class="form-control" id="bookAuthor">
+ </div>
+ <div class="form-group">
+ <label for="category">Category:</label>
+ <input type="text" class="form-control" id="category">
+ </div>
+ <div class="form-group">
+ <label for="bookPrice">Price:</label>
+ <input type="text" class="form-control" id="bookPrice">
+ </div>
+ <button name="saveUpdateBook" class="btn btn-primary">Lưu</button>
+ <button type="button" onclick="closeEditBookForm()" class="btn btn-secondary">Đóng</button>
+ </form>
+ </div>
+
 
  </div>
  </div>
@@ -786,7 +564,98 @@
  <?php echo $this->runChild('admin.components.script'); ?>
 </body>
 
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+ const editButtons = document.querySelectorAll(".edit-btn");
+ const editForm = document.getElementById("editBookForm");
 
-<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/books.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:17:09 GMT -->
+ editButtons.forEach(button => {
+ button.addEventListener("click", function(event) {
+ event.preventDefault(); // Ngăn chặn chuyển trang
+
+ // Lấy dữ liệu từ thuộc tính data-*
+ document.getElementById("bookId").value = this.getAttribute("data-id");
+ document.getElementById("bookTitle").value = this.getAttribute("data-title");
+ document.getElementById("bookPrice").value = this.getAttribute("data-price");
+ document.getElementById("bookAuthor").value = this.getAttribute("data-author");
+ document.getElementById("category").value = this.getAttribute("data-category");
+
+ // Hiển thị form sửa
+ editForm.style.display = "block";
+ });
+ });
+ });
+
+ function closeEditBookForm(event) {
+
+ event.preventDefault();
+ document.getElementById("editBookForm").style.display = "none";
+ }
+
+ function confirmDelete(event) {
+ event.preventDefault();
+ Swal.fire({
+ title: "Bạn có chắc chắn muốn xóa?",
+ text: "Xóa là bay màu!",
+ icon: "warning",
+ showCancelButton: true,
+ confirmButtonColor: "#3085d6",
+ cancelButtonColor: "#d33",
+ confirmButtonText: "Có, đóng lại!",
+ cancelButtonText: "Hủy"
+ }).then((result) => {
+ if (result.isConfirmed) {
+ document.getElementById("editBookForm").style.display = "none";
+ }
+ });
+ }
+
+ document.addEventListener("DOMContentLoaded", function() {
+ const form = document.getElementById("editBookForm");
+ const header = form.querySelector("#formHeader"); // Tiêu đề form để kéo
+
+ let offsetX, offsetY, isDragging = false;
+
+ header.addEventListener("mousedown", function(event) {
+ isDragging = true;
+ offsetX = event.clientX - form.offsetLeft;
+ offsetY = event.clientY - form.offsetTop;
+ document.body.style.cursor = 'grabbing'; // Thay đổi con trỏ khi kéo
+ });
+
+ document.addEventListener("mousemove", function(event) {
+ if (isDragging) {
+ form.style.left = (event.clientX - offsetX) + 'px';
+ form.style.top = (event.clientY - offsetY) + 'px';
+ }
+ });
+
+ document.addEventListener("mouseup", function() {
+ isDragging = false;
+ document.body.style.cursor = 'default'; // Trả lại con trỏ ban đầu
+ });
+
+ const editButtons = document.querySelectorAll(".edit-btn");
+ const editForm = document.getElementById("editBookForm");
+
+ editButtons.forEach(button => {
+ button.addEventListener("click", function(event) {
+ event.preventDefault(); // Ngăn chặn chuyển trang
+
+ // Lấy dữ liệu từ thuộc tính data-*
+ document.getElementById("bookId").value = this.getAttribute("data-id");
+ document.getElementById("bookTitle").value = this.getAttribute("data-title");
+ document.getElementById("bookPrice").value = this.getAttribute("data-price");
+
+ // Hiển thị form sửa
+ editForm.style.display = "block";
+ });
+ });
+ });
+
+ function closeEditBookForm() {
+ document.getElementById("editBookForm").style.display = "none";
+ }
+</script>
 
 </html>

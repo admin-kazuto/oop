@@ -19,6 +19,12 @@ class BooksModel extends baseModels
         return $this->all();
     }
 
+    public function GetAllBooks()
+    {
+        $this->setSQL("SELECT * FROM {$this->table}");
+        return $this->all();
+    }
+
     public function GetAllCategories()
     {
         $this->setSQL("SELECT * FROM categories");

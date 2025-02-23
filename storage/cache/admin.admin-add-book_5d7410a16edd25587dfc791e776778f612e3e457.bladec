@@ -9,6 +9,18 @@
  <?php echo $this->runChild('admin.components.sidebar'); ?>
  <main class="main-content">
  <?php echo $this->runChild('admin.components.nav'); ?>
+ <?php
+ if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
+ $mes = isset($_SESSION['success'])
+ ? ['title' => 'Success', 'text' => 'Đã thêm thành công', 'icon' => 'success']
+ : ['title' => 'Error', 'text' => 'Vui lớng nhập đầyy đủ thống tin', 'icon' => 'error'];
+ echo "<script>Swal.fire({
+ title: '{$mes['title']}',
+ text: '{$mes['text']}',
+ icon: '{$mes['icon']}'
+ });</script>";
+ }
+ ?>
  <div class="content-inner container-fluid pb-0" id="page_layout">
  <div class="row">
  <div class="col-sm-12">
