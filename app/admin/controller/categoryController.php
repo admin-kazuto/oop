@@ -33,7 +33,7 @@ class CategoryController extends controller
                     $params[] = $value;
                 }
             }
-            $this->CategoryController->add($params);
+            // $this->CategoryController->add($params);
         }
     }
 }

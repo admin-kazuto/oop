@@ -130,27 +130,27 @@ if (offcanvas !== null && toggleelem1 !== null) {
 /*---------------------------------------------------------------------
             Popup Action
 -----------------------------------------------------------------------*/
-$(".delete-btn").on("click", function () {
-    const __this = $(this)
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to delete this item",
-        icon: 'error',
-        showCancelButton: true,
-        backdrop: `rgba(60,60,60,0.8)`,
-        confirmButtonText: 'Yes, delete it!',
-        confirmButtonColor: "#c03221"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $(__this).closest('[data-item="list"]').remove();
-            Swal.fire(
-                'Deleted!',
-                'Your item has been deleted.',
-                'success'
-            )
-        }
-    })
-})
+// $(".delete-btn").on("click", function () {
+//     const __this = $(this)
+//     Swal.fire({
+//         title: 'Are you sure?',
+//         text: "You want to delete this item",
+//         icon: 'error',
+//         showCancelButton: true,
+//         backdrop: `rgba(60,60,60,0.8)`,
+//         confirmButtonText: 'Yes, delete it!',
+//         confirmButtonColor: "#c03221"
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             $(__this).closest('[data-item="list"]').remove();
+//             Swal.fire(
+//                 'Deleted!',
+//                 'Your item has been deleted.',
+//                 'success'
+//             )
+//         }
+//     })
+// })
 
 $(".wishlist-btn").on("click", function () {
     Swal.fire(

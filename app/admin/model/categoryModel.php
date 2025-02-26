@@ -1,8 +1,8 @@
 <?php 
 namespace App\admin\model; // Sửa namespace thành App\Models
 
-use App\admin\Model\baseModels;
-class categoryModel extends baseModels
+use App\admin\Model\Model;
+class categoryModel extends Model
 {
     protected $table = 'categories';
 

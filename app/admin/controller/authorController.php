@@ -14,7 +14,7 @@ class AuthorController extends controller
 
     public function ListAuthor()
     {
-        $author = $this->AuthorController->getAll();
+        $author = $this->AuthorController->getAllAuthor();
         return $this->view('admin.author');
     }
     public function FormAddAuthor(){
@@ -29,7 +29,7 @@ class AuthorController extends controller
                     $params[] = $value;
                 }
             }
-            $this->AuthorController->add($params);
+            // $this->AuthorController->add($params);
         }
         return $this->view('admin.author');
     }

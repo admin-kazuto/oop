@@ -2,9 +2,9 @@
 
 namespace App\admin\model;
 
-use App\admin\Model\baseModels;
+use App\admin\Model\Model;
 
-class BillModel extends baseModels
+class BillModel extends Model
 {
     protected $table = 'orders';
 

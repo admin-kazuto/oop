@@ -7,5 +7,5 @@ require __DIR__ . '/vendor/autoload.php';
 // Load biến môi trường từ .env
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-include __DIR__.'/routes/router.php';
+include __DIR__.'/routes/web.php';
 

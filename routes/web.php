@@ -2,6 +2,7 @@
 // Khởi tạo Router
 use Bramus\Router\Router;
 $router = new Router();
+
 // $router->setBasePath('/oop-version-2');
 
 
@@ -63,6 +64,10 @@ $router->mount('', function () use (
 
     $router->post('/add-book', function () use ($bookController) {
         $bookController->AddBook();
+    });
+
+    $router->post('/edit-book/{id}', function ($params) use ($bookController) {
+        $bookController->EditBook($params);
     });
 
     $router->get('/category', function () use ($categoryController) {

@@ -72,7 +72,6 @@
                         <li class="nav-item">
                             <a
                                 class="nav-link <?= ($currentURL === '/dashboard') ? 'active' : '' ?>"
-                                <?php echo $currentURL ?>
                                 aria-current="page"
                                 href="/">
                                 <i class="icon" data-bs-toggle="tooltip" title="Dashboard"

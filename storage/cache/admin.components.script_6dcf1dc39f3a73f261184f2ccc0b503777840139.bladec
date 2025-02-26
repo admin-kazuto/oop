@@ -35,3 +35,4 @@
  <script src="resources/public/js/sidebar5438.js?v=1.2.0" defer></script>
  <script src="resources/public/js/plugins/select2.js" defer></script>
  <script src="resources/public/js/Setting/enchanter.js" defer></script>
+ <script src="resources/public/js/custom.js"></script>

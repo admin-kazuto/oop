@@ -53,8 +53,27 @@ class BookController extends controller
         }
     }
 
-    public function UpdateBook($id) {
-        
+    public function EditBook($params) {
+       if(isset($_POST['saveEditBook'])){
+            $updateData = ['id'=>$params];
+            foreach($_POST as $key => $value){
+                if($key != 'saveEditBook'){
+                    $updateData[] = $value;
+                }
+            }
+            // if(isset($_FILES['image']) && $_FILES['image']['error'] == 0){
+            //     $uploadDir = __DIR__ . '/../../../resources/public/images/upload/';
+            //     $fileName = basename($_FILES['image']['name']);
+            //     $uploadFile = $uploadDir . $fileName;
+            //     if(move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)){
+            //         $updateData[] = $fileName;
+            //     }else{
+            //         $updateData[] = null;
+            //     }
+            // } 
+            
+            var_dump($updateData);
+       }
     }
 
     public function DeleteBook($id) {}

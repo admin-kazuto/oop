@@ -2,9 +2,9 @@
 
 namespace App\admin\model; // Sửa namespace thành App\Models
 
-use App\admin\Model\baseModels;
+use App\admin\Model\Model;
 
-class BooksModel extends baseModels
+class BooksModel extends Model
 {
     protected $table = 'books';
     public function __construct()

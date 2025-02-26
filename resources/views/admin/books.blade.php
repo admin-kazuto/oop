@@ -43,30 +43,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($Books as $book): ?>
+                                        <?php $index = 1;
+                                        foreach ($Books as $book): ?>
                                             <tr>
-                                                <td>{{ $book->book_id }}</td>
+                                                <td><?= $index++ ?></td>
                                                 <td><img src="resources/public/images/upload/{{ $book->image }}" class="img-fluid rounded"
                                                         alt=""></td>
                                                 <td>{{ $book->title }}</td>
                                                 <td>{{ $book->category_name }}</td>
                                                 <td>{{ $book->author_name }}</td>
-                                                <td class="description-column">
+                                                <td style="max-width: 200px;" class="description-column">
                                                     {{ $book->description }}
                                                 </td>
                                                 <td><?php echo number_format($book->price, 0, ',', '.') ?>vnđ</td>
                                                 <td>
                                                     <div class="d-flex gap-1 align-items-center list-user-action">
-                                                        <!-- <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
-                                                            title="Edit" href="#">
-                                                            <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                        </a> -->
-                                                        <a class="bg-success-subtle rounded edit-btn" data-id="{{ $book->book_id }}"
-                                                            data-title="{{ $book->title }}" data-price="{{ $book->price }}" data-description="{{ $book->description }}" data-category="{{ $book->category_name }}" data-author="{{ $book->author_name }}" data-toggle="tooltip" data-placement="top" title="" href="#">
+                                                        <a class="bg-success-subtle rounded edit-btn"
+                                                            data-id="{{ $book->book_id }}" data-title="{{ $book->title }}"
+                                                            data-price="{{ $book->price }}" data-author="{{ $book->author_name }}"
+                                                            data-description="{{ $book->description }}" data-category="{{ $book->category_name }}" data-id="{{ $book-> book_id }}" data-image="{{ $book->image }}"
+                                                            href="{{ route('edit-book', [$book->book_id]) }}">
                                                             <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
                                                         </a>
-                                                        <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete" href="{{ route('delete-book', $book->book_id) }}">
+                                                        <a onclick="confirmDelete()" class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
+                                                            data-placement="top" title="Delete" href="{{ route('delete-book', [$book->book_id]) }}">
                                                             <i class="ph ph-trash text-danger custom-ph-icons"></i>
                                                         </a>
                                                     </div>
@@ -78,29 +78,43 @@
                             </div>
                         </div>
                         <!-- Form sửa sách (Ẩn mặc định) -->
-                        <div class="edit-book-form" id="editBookForm" style="display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%);
-                        background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; width: 400px;">
-                            <form>
+                        <div class="edit-book-form p-4 rounded shadow-lg bg-white" id="editBookForm" style="display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%);
+                        background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; width: 450px;">
+                            <form method="post" id="formId" enctype="multipart/form-data">
                                 <h5 id="formHeader">Chỉnh sửa sách</h5> <!-- Thêm id để dễ dàng truy cập -->
                                 <input type="hidden" id="bookId">
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="bookTitle">Book Name:</label>
-                                    <input type="text" class="form-control" id="bookTitle">
+                                    <input name="name" type="text" class="form-control" id="bookTitle">
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label for="image">Image:</label>
+                                    <div class="d-flex justify-content-space-between align-items-center gap-3">
+                                        <img name="previewImage" id="previewImage" alt="Preview" style="max-width: 100px; max-height: 100px;"> <!-- đã dùng js để gắn link ảnh ở file custom.js -->
+                                        <input type="hidden" name="oldImage" id="oldImage">
+                                        <input name="image" type="file" class="form-control" id="image">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
                                     <label for="bookAuthor">Author:</label>
-                                    <input type="text" class="form-control" id="bookAuthor">
+                                    <input name="author" type="text" class="form-control" id="bookAuthor">
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="category">Category:</label>
-                                    <input type="text" class="form-control" id="category">
+                                    <input name="category" type="text" class="form-control" id="category">
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="bookPrice">Price:</label>
-                                    <input type="text" class="form-control" id="bookPrice"> 
+                                    <input name="price" type="text" class="form-control" id="bookPrice">
                                 </div>
-                                <button name="saveUpdateBook" class="btn btn-primary">Lưu</button>
-                                <button type="button" onclick="closeEditBookForm()" class="btn btn-secondary">Đóng</button>
+                                <div class="mb-3">
+                                    <label for="bookPrice">Description:</label>
+                                    <textarea style="max-height: 100px;" rows="2" cols="15" name="description" type="text" class="form-control" id="bookDescription"></textarea>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" onclick="closeEditBookForm(event)" class="btn btn-secondary">Đóng</button>
+                                    <button id="saveEditBook" name="saveEditBook" class="btn btn-primary">Lưu</button>
+                                </div>
                             </form>
                         </div>
 
@@ -562,99 +576,5 @@
 
     @include('admin.components.script')
 </body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const editButtons = document.querySelectorAll(".edit-btn");
-        const editForm = document.getElementById("editBookForm");
-
-        editButtons.forEach(button => {
-            button.addEventListener("click", function(event) {
-                event.preventDefault(); // Ngăn chặn chuyển trang
-
-                // Lấy dữ liệu từ thuộc tính data-*
-                document.getElementById("bookId").value = this.getAttribute("data-id");
-                document.getElementById("bookTitle").value = this.getAttribute("data-title");
-                document.getElementById("bookPrice").value = this.getAttribute("data-price");
-                document.getElementById("bookAuthor").value = this.getAttribute("data-author");
-                document.getElementById("category").value = this.getAttribute("data-category");
-
-                // Hiển thị form sửa
-                editForm.style.display = "block";
-            });
-        });
-    });
-
-    function closeEditBookForm(event) {
-
-        event.preventDefault();
-        document.getElementById("editBookForm").style.display = "none";
-    }
-
-    function confirmDelete(event) {
-        event.preventDefault();
-        Swal.fire({
-            title: "Bạn có chắc chắn muốn xóa?",
-            text: "Xóa là bay màu!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Có, đóng lại!",
-            cancelButtonText: "Hủy"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById("editBookForm").style.display = "none";
-            }
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("editBookForm");
-        const header = form.querySelector("#formHeader"); // Tiêu đề form để kéo
-
-        let offsetX, offsetY, isDragging = false;
-
-        header.addEventListener("mousedown", function(event) {
-            isDragging = true;
-            offsetX = event.clientX - form.offsetLeft;
-            offsetY = event.clientY - form.offsetTop;
-            document.body.style.cursor = 'grabbing'; // Thay đổi con trỏ khi kéo
-        });
-
-        document.addEventListener("mousemove", function(event) {
-            if (isDragging) {
-                form.style.left = (event.clientX - offsetX) + 'px';
-                form.style.top = (event.clientY - offsetY) + 'px';
-            }
-        });
-
-        document.addEventListener("mouseup", function() {
-            isDragging = false;
-            document.body.style.cursor = 'default'; // Trả lại con trỏ ban đầu
-        });
-
-        const editButtons = document.querySelectorAll(".edit-btn");
-        const editForm = document.getElementById("editBookForm");
-
-        editButtons.forEach(button => {
-            button.addEventListener("click", function(event) {
-                event.preventDefault(); // Ngăn chặn chuyển trang
-
-                // Lấy dữ liệu từ thuộc tính data-*
-                document.getElementById("bookId").value = this.getAttribute("data-id");
-                document.getElementById("bookTitle").value = this.getAttribute("data-title");
-                document.getElementById("bookPrice").value = this.getAttribute("data-price");
-
-                // Hiển thị form sửa
-                editForm.style.display = "block";
-            });
-        });
-    });
-
-    function closeEditBookForm() {
-        document.getElementById("editBookForm").style.display = "none";
-    }
-</script>
 
 </html>

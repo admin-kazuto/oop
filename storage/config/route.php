@@ -5,7 +5,6 @@ function route($routerName, $params = []) {
     foreach($params as $key => $value) {
         $path = str_replace("{".$key."}", htmlspecialchars($value, ENT_QUOTES, 'UTF-8'), $path);
     }
-
     //xác định kịch bản của path
     $scriptPath = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
 
