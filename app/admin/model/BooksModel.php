@@ -1,12 +1,11 @@
 <?php
 
-namespace App\admin\model; // Sửa namespace thành App\Models
-
+namespace App\admin\model; 
 use App\admin\Model\Model;
-
 class BooksModel extends Model
 {
     protected $table = 'books';
+    protected $stmt;
     public function __construct()
     {
         parent::__construct();
@@ -25,6 +24,12 @@ class BooksModel extends Model
         return $this->all();
     }
 
+    public function getBookById($params)
+    {
+        $this->setSQL("SELECT * FROM {$this->table} WHERE book_id = ?");
+        return $this->first([$params]);
+    }
+
     public function GetAllCategories()
     {
         $this->setSQL("SELECT * FROM categories");
@@ -40,6 +45,18 @@ class BooksModel extends Model
     public function AddBook($params)
     {
         $this->setSQL("INSERT INTO {$this->table} (title, author_id, category_id, price, quantity,description ,image) VALUES (?,?,?,?,?,?,?)");
-        return $this->execute($params); 
+        return $this->execute($params);
+    }
+
+    public function DeleteBook($params)
+    {
+        $this->setSQL("update books set status = 0 where book_id = ?");
+        return $this->execute([$params]);
+    }
+
+    public function RestoreBook($params)
+    {
+        $this -> setSQL('UPDATE books SET status = 1 WHERE book_id = ?');
+        return $this->execute([$params]);
     }
 }

@@ -21,72 +21,89 @@
             }
         })();
     </script>
+    <style>
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tox .tox-statusbar__branding {
+            display: none;
+        }
+
+        .tox-promotion {
+            display: none;
+        }
+
+        /* Ẩn logo TinyMCE */
+    </style>
 
     <meta name="setting_options" content='{&quot;saveLocal&quot;:&quot;sessionStorage&quot;,&quot;storeKey&quot;:&quot;booksto&quot;,&quot;setting&quot;:{&quot;app_name&quot;:{&quot;value&quot;:&quot;Booksto&quot;},&quot;theme_scheme_direction&quot;:{&quot;value&quot;:&quot;ltr&quot;},&quot;theme_scheme&quot;:{&quot;value&quot;:&quot;light&quot;},&quot;theme_color&quot;:{&quot;colors&quot;:{},&quot;value&quot;:&quot;default&quot;},&quot;theme_font_size&quot;:{&quot;value&quot;:&quot;theme-fs-md&quot;},&quot;page_layout&quot;:{&quot;value&quot;:&quot;container-fluid&quot;},&quot;sidebar_color&quot;:{&quot;value&quot;:&quot;sidebar-white&quot;},&quot;sidebar_type&quot;:{&quot;value&quot;:[]},&quot;sidebar_menu_style&quot;:{&quot;value&quot;:&quot;text-hover&quot;},&quot;theme_style_appearance&quot;:{&quot;value&quot;:{&quot;0&quot;:&quot;theme-default&quot;}},&quot;theme_transition&quot;:{&quot;value&quot;:&quot;theme-with-animation&quot;},&quot;header_navbar&quot;:{&quot;value&quot;:&quot;default&quot;},&quot;header_banner&quot;:{&quot;value&quot;:&quot;default&quot;},&quot;card_color&quot;:{&quot;value&quot;:&quot;card-default&quot;},&quot;footer&quot;:{&quot;value&quot;:&quot;default&quot;},&quot;body_font_family&quot;:{&quot;value&quot;:null},&quot;heading_font_family&quot;:{&quot;value&quot;:null}}}'>
     <!-- Google Font Api KEY-->
     <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/public/images/logo-mini.png" />
+    <link rel="shortcut icon" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/images/logo-mini.png" />
 
     <!-- Library / Plugin Css Build -->
-    <link rel="stylesheet" href="resources/public/css/core/libs.min.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/css/core/libs.min.css" />
 
     <!-- flaticon css -->
-    <link rel="stylesheet" href="vendor/flaticon/css/flaticon.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/flaticon/css/flaticon.css" />
 
     <!-- font-awesome css -->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/font-awesome/css/font-awesome.min.css" />
 
 
 
     <!-- SwiperSlider css -->
-    <link rel="stylesheet" href="vendor/swiperSlider/swiper.min.css">
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/swiperSlider/swiper.min.css">
 
 
 
 
 
     <!-- Flatpickr css -->
-    <link rel="stylesheet" href="vendor/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/flatpickr/dist/flatpickr.min.css" />
 
 
 
     <!-- booksto Design System Css -->
-    <link rel="stylesheet" href="resources/public/css/books.min5438.css?v=1.2.0" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/css/books.min5438.css?v=1.2.0" />
 
     <!-- Custom Css -->
-    <link rel="stylesheet" href="resources/public/css/custom.min5438.css?v=1.2.0" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/css/custom.min5438.css?v=1.2.0" />
 
     <!-- RTL Css -->
-    <link rel="stylesheet" href="resources/public/css/rtl.min5438.css?v=1.2.0" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/css/rtl.min5438.css?v=1.2.0" />
 
     <!-- Customizer Css -->
-    <link rel="stylesheet" href="resources/public/css/customizer.min5438.css?v=1.2.0" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/css/customizer.min5438.css?v=1.2.0" />
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href=" https://fonts.googleapis.com/">
+    <link rel="preconnect" href=" https://fonts.gstatic.com/" crossorigin>
 
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="vendor/remixicon/fonts/remixicon.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/remixicon/fonts/remixicon.css" />
 
-    <link rel="stylesheet" href="vendor/dripicons/webfont/webfont.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/dripicons/webfont/webfont.css" />
 
-    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.min.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/ionicons/css/ionicons.min.css" />
 
-    <link rel="stylesheet" href="vendor/line-awesome/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/line-awesome/css/line-awesome.min.css" />
 
     <!-- Phosphor icons  -->
-    <link rel="stylesheet" href="vendor/phosphor-icons/Fonts/regular/style.css">
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/phosphor-icons/Fonts/regular/style.css">
     </link>
-    <link rel="stylesheet" href="vendor/phosphor-icons/Fonts/duotone/style.css">
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/phosphor-icons/Fonts/duotone/style.css">
     </link>
-    <link rel="stylesheet" href="vendor/phosphor-icons/Fonts/fill/style.css">
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../vendor/phosphor-icons/Fonts/fill/style.css">
     </link>
-    <script src="resources/public/sweetalert2/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="resources/public/sweetalert2/sweetalert2.min.css">
+    <script src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>resources/public/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="<?= dirname($_SERVER['SCRIPT_NAME']) ?> /../resources/public/sweetalert2/sweetalert2.min.css">
+    <script src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>vendor/tinymce/tinymce/tinymce.min.js"></script>
 </head>

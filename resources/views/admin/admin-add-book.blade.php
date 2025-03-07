@@ -9,22 +9,7 @@
     @include('admin.components.sidebar')
     <main class="main-content">
         @include('admin.components.nav')
-        <?php
-        if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
-            $mes = isset($_SESSION['success'])
-                ? ['title' => 'Success', 'text' => 'Đã thêm thành công', 'icon' => 'success']
-                : ['title' => 'Error', 'text' => 'Vui lòng nhập đầy đủ thống tin', 'icon' => 'error'];
-            echo "<script>Swal.fire({
-                title: '{$mes['title']}',
-                text: '{$mes['text']}',
-                icon: '{$mes['icon']}'
-            });</script>";
-            unset($_SESSION['success']);
-            unset($_SESSION['error']);
-        }
-
-
-        ?>
+        @include('admin.components.notification')
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div class="row">
                 <div class="col-sm-12">
@@ -61,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Book Image:</label>
-                                    <input name="image" type="file" class="form-control p-2 bg-white border">
+                                    <input  name="image" type="file" class="form-control p-2 bg-white border">
                                 </div>
                                 <div class="form-group">
                                     <label>Book Price:</label>

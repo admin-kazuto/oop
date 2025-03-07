@@ -1,8 +1,5 @@
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
-
-
-<!-- Mirrored from templates.iqonic.design/booksto-dist/html/admin/books.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Feb 2025 17:17:09 GMT -->
 @include('admin.components.header')
 
 <body class="  ">
@@ -11,6 +8,7 @@
     <!-- loader END -->
     @include('admin.components.sidebar')
     <main class="main-content">
+        @include('admin.components.notification')
         @include('admin.components.nav')
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div class="row ">
@@ -34,11 +32,12 @@
                                             <th scope="col" class="border-bottom bg-primary text-white">Book Image</th>
                                             <th scope="col" class="border-bottom bg-primary text-white">Book Name</th>
                                             <th scope="col" class="border-bottom bg-primary text-white">Book Catergory</th>
-                                            <th scope="col" class="border-bottom bg-primary text-white">Book Author</th>
+                                            <!-- <th scope="col" class="border-bottom bg-primary text-white">Book Author</th>
                                             <th scope="col" class="border-bottom bg-primary text-white description-column">Book
-                                                Description</th>
+                                                Description</th> -->
                                             <th scope="col" class="border-bottom bg-primary text-white">Book Price</th>
 
+                                            <th scope="col" class="border-bottom bg-primary text-white">Status</th>
                                             <th scope="col" class="border-bottom bg-primary text-white">Action</th>
                                         </tr>
                                     </thead>
@@ -47,28 +46,38 @@
                                         foreach ($Books as $book): ?>
                                             <tr>
                                                 <td><?= $index++ ?></td>
-                                                <td><img src="resources/public/images/upload/{{ $book->image }}" class="img-fluid rounded"
+                                                <td><img style="max-width: 80px; max-height: 160px; object-fit: cover ;" src="resources/public/images/upload/{{ $book->image }}" class="img-fluid rounded"
                                                         alt=""></td>
                                                 <td>{{ $book->title }}</td>
                                                 <td>{{ $book->category_name }}</td>
-                                                <td>{{ $book->author_name }}</td>
-                                                <td style="max-width: 200px;" class="description-column">
+                                                <!-- <td>{{ $book->author_name }}</td> -->
+                                                <!-- <td style="max-width: 200px;" class="description-column">
                                                     {{ $book->description }}
-                                                </td>
+                                                </td> -->
                                                 <td><?php echo number_format($book->price, 0, ',', '.') ?>vnđ</td>
                                                 <td>
+                                                    <span class="badge  <?php echo $book->status == 1 ? 'text-bg-success' : 'text-bg-danger'; ?>">
+                                                        <?php echo $book->status == 1 ? 'Active' : 'Inactive'; ?>
+                                                    </span>
+                                                </td>
+
+                                                <td>
                                                     <div class="d-flex gap-1 align-items-center list-user-action">
-                                                        <a class="bg-success-subtle rounded edit-btn"
-                                                            data-id="{{ $book->book_id }}" data-title="{{ $book->title }}"
-                                                            data-price="{{ $book->price }}" data-author="{{ $book->author_name }}"
-                                                            data-description="{{ $book->description }}" data-category="{{ $book->category_name }}" data-id="{{ $book-> book_id }}" data-image="{{ $book->image }}"
-                                                            href="{{ route('edit-book', [$book->book_id]) }}">
-                                                            <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
+                                                        <a href="{{ route('detail-book/{id}', ['id' => $book->book_id]) }}" class="bg-success-subtle rounded ">
+                                                            <i class="ph ph-eye text-primary custom-ph-icons"></i> <!-- chi tiết -->
                                                         </a>
-                                                        <a onclick="confirmDelete()" class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete" href="{{ route('delete-book', [$book->book_id]) }}">
-                                                            <i class="ph ph-trash text-danger custom-ph-icons"></i>
+                                                        <a class="bg-warning-subtle rounded edit-btn "
+                                                            href="{{ route('form-edit-book/{id}', ['id'=>$book->book_id]) }}">
+                                                            <i class="ph ph-pencil-simple text-warning custom-ph-icons"></i> <!-- sửa -->
                                                         </a>
+                                                        <a onclick="" class="bg-danger-subtle  rounded" data-toggle="tooltip"
+                                                            data-placement="top" title="Delete" href="{{ route('delete-book/{id}', ['id' => $book->book_id]) }}">
+                                                            <i class="ph ph-trash text-danger custom-ph-icons"></i> <!-- xóa -->
+                                                        </a>
+                                                        <a onclick="confirmDelete()" href="{{ route('restore-book/{id}', ['id'=> $book->book_id]) }}" class="bg-info-subtle  rounded">
+                                                            <i class="ph ph-device-rotate text-info custom-ph-icons"></i> <!-- khôi phục  -->
+                                                        </a>
+                                            
                                                     </div>
                                                 </td>
                                             </tr>
@@ -78,8 +87,8 @@
                             </div>
                         </div>
                         <!-- Form sửa sách (Ẩn mặc định) -->
-                        <div class="edit-book-form p-4 rounded shadow-lg bg-white" id="editBookForm" style="display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%);
-                        background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000; width: 450px;">
+                        <div class="edit-book-form p-4 rounded shadow-lg bg-white" id="editBookForm" style="display: none; 
+                        background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); z-index: 1000; width: 450px;">
                             <form method="post" id="formId" enctype="multipart/form-data">
                                 <h5 id="formHeader">Chỉnh sửa sách</h5> <!-- Thêm id để dễ dàng truy cập -->
                                 <input type="hidden" id="bookId">

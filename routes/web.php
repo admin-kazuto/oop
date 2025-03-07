@@ -1,9 +1,10 @@
 <?php
 // Khởi tạo Router
 use Bramus\Router\Router;
+
 $router = new Router();
 
-// $router->setBasePath('/oop-version-2');
+// $router->setBasePath('/admin');
 
 
 use App\admin\controller\dashboardController;
@@ -51,7 +52,7 @@ $router->mount('', function () use (
     $homeController,
 ) {
     // $router -> get('/','App\\controller\\dashboardController@index');
-    $router->get('/dashboard', function () use ($dashboardController) {
+    $router->get('dashboard', function () use ($dashboardController) {
         $dashboardController->index();
     });
     $router->get('/books', function () use ($bookController) {
@@ -66,8 +67,23 @@ $router->mount('', function () use (
         $bookController->AddBook();
     });
 
+    $router->get('/form-edit-book/{id}', function ($params) use ($bookController) {
+        $bookController->FormEditBook($params);
+    });
     $router->post('/edit-book/{id}', function ($params) use ($bookController) {
         $bookController->EditBook($params);
+    });
+
+    $router->get('/delete-book/{id}', function ($params) use ($bookController) {
+        $bookController->DeleteBook($params);
+    });
+
+    $router->get('/restore-book/{id}', function ($params) use ($bookController) {
+        $bookController->RestoreBook($params);
+    });
+
+    $router->get('/detail-book/{id}', function ($params) use ($bookController) {
+        $bookController->DetailBook($params);
     });
 
     $router->get('/category', function () use ($categoryController) {
@@ -102,7 +118,6 @@ $router->mount('', function () use (
         $homeController->Home();
     });
 });
-//các phương thức của router 
 // Xử lý lỗi 404
 $router->set404(function () {
     header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
@@ -115,5 +130,3 @@ $router->set404(function () {
 // $router->get('product/{id}','App\\controller\\ProductController@ListProduct');
 // Chạy Router
 $router->run();
-
-?>
