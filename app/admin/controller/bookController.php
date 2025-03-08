@@ -15,22 +15,25 @@ class BookController extends controller
     public function ListBooks()
     {
         $Books = $this->BookController->GetAllWithCategoryAndAuthor();
-        return $this->view('admin.books', compact('Books'));
+        return $this->view('admin.book.books', compact('Books'));
     }
 
     public function FormAddBook()
     {
         $ListCategories = $this->BookController->GetAllCategories();
         $ListAuthor = $this->BookController->GetAllAuthor();
-        return $this->view('admin.admin-add-book', compact('ListCategories', 'ListAuthor'));
+        return $this->view('admin.book.admin-add-book', compact('ListCategories', 'ListAuthor'));
     }
 
     public function DetailBook($params){
-        return $this -> view('admin.admin-detail-book');
+        return $this -> view('admin.book.admin-detail-book');
     }
 
     public function FormEditBook($params){
-        return $this -> view('admin.admin-edit-book');
+        $book = $this->BookController->getBookById($params);
+        $categories = $this->BookController->GetAllCategories();
+        $authors = $this->BookController->GetAllAuthor();
+        return $this -> view('admin.book.admin-edit-book', compact('book', 'categories', 'authors'));
     }
 
     public function AddBook()
@@ -72,7 +75,7 @@ class BookController extends controller
 
     public function EditBook($params)
     {
-        // $dataImage = $this -> BookController -> getBookById($params);
+        $dataImage = $this -> BookController -> getBookById($params['image']);
         // if (isset($_POST['saveEditBook'])) {
         //     $updateData = [$params];
         //     foreach ($_POST as $key => $value) {
@@ -94,7 +97,7 @@ class BookController extends controller
 
         //     $this->BookController->UpdateBook($updateData);
         // }
-       
+       var_dump($dataImage);
     }
 
     public function DeleteBook($params)

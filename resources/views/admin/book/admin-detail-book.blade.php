@@ -62,17 +62,12 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center position-relative">
                             <div class="iq-header-title">
-                                <h4 class="mb-0">chi tiết sách</h4>
+                                <h2 class="mb-4"><i class="fa fa-book"></i> Chi Tiết Sách</h2>
+                                <a href="{{ route('books') }}" class="back-link"><i class="fa fa-arrow-left"></i> Quay lại danh sách</a>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="admin-container">
-                                <h2 class="mb-4"><i class="fa fa-book"></i> Chi Tiết Sách</h2>
-
-                                <!-- Nút quay lại danh sách -->
-                                <a href="book-list.php" class="back-link"><i class="fa fa-arrow-left"></i> Quay lại danh sách</a>
-
-                                <hr>
 
                                 <!-- Ảnh Sách -->
                                 <div class="text-center mb-4">

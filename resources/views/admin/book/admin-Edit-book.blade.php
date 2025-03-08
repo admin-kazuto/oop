@@ -19,31 +19,30 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            <?php var_dump($book); ?>
                             <div class="container mt-5">
                                 <form action="update_product.php" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="book_id" value="<?= $book->book_id ?>">
                                     <div class="row">
                                         <!-- Cột trái (50%) -->
                                         <div class="col-md-6">
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-book"></i> Tiêu đề sách</label>
-                                                <input type="text" class="form-control" name="title" value="Tên sách mẫu" required>
+                                                <input type="text" class="form-control" name="title" value="<?= $book->title ?>" required>
                                             </div>
 
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-user"></i> Tác giả</label>
-                                                <select class="form-select" name="author_id">
-                                                    <option value="1">Nguyễn Văn A</option>
-                                                    <option value="2">Trần Thị B</option>
-                                                    <option value="3">Lê Văn C</option>
+                                                <select class="form-select" name="author">
+                                                    @foreach ($authors as $auth)
+                                                    <option value="{{ $auth->name }}" {{ $auth->author_id == $book->author_id ? 'selected' : '' }}> {{ $auth->name }} </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
-
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-list"></i> Danh mục</label>
                                                 <select class="form-select" name="category_id">
                                                     <option value="1">Sách giáo khoa</option>
-                                                    <option value="2">Tiểu thuyết</option>
-                                                    <option value="3">Truyện tranh</option>
                                                 </select>
                                             </div>
 
