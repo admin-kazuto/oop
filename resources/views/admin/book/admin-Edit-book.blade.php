@@ -19,9 +19,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <?php var_dump($book); ?>
                             <div class="container mt-5">
-                                <form action="update_product.php" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('edit-book/{id}', ['id'=>$book->book_id]) }}" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="book_id" value="<?= $book->book_id ?>">
                                     <div class="row">
                                         <!-- Cột trái (50%) -->
@@ -35,25 +34,27 @@
                                                 <label class="form-label fw-bold"><i class="fa fa-user"></i> Tác giả</label>
                                                 <select class="form-select" name="author">
                                                     @foreach ($authors as $auth)
-                                                    <option value="{{ $auth->name }}" {{ $auth->author_id == $book->author_id ? 'selected' : '' }}> {{ $auth->name }} </option>
+                                                    <option value="{{ $auth->author_id }}" {{ $auth->author_id == $book->author_id ? 'selected' : '' }}> {{ $auth->name }} </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-list"></i> Danh mục</label>
                                                 <select class="form-select" name="category_id">
-                                                    <option value="1">Sách giáo khoa</option>
+                                                    @foreach ($categories as $category)
+                                                    <option value="{{ $category->category_id }}" {{ $category->category_id == $book->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
 
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-coins"></i> Giá (VNĐ)</label>
-                                                <input type="number" class="form-control" name="price" value="150000" required>
+                                                <input type="number" class="form-control" name="price" value="{{ $book->price }}" required>
                                             </div>
 
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-box"></i> Số lượng</label>
-                                                <input type="number" class="form-control" name="quantity" value="10" required>
+                                                <input type="number" class="form-control" name="quantity" value="{{ $book->quantity }}" required>
                                             </div>
                                         </div>
 
@@ -61,24 +62,26 @@
                                         <div class="col-md-6">
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-align-left"></i> Mô tả sách</label>
-                                                <textarea id="editor" name="description">Mô tả chi tiết về sách...</textarea>
+                                                <textarea id="editor" name="description">{{ $book->description }}</textarea>
                                             </div>
 
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-check-circle"></i> Trạng thái</label>
                                                 <select class="form-select" name="status">
-                                                    <option value="1" selected>Còn hàng</option>
-                                                    <option value="0">Hết hàng</option>
+                                                    @{% if book.status == 1 %}
+                                                    echo <option value="1">Active</option>
+                                                    {% endif %}
+                                                    <option value="0">Inactive</option>
                                                 </select>
                                             </div>
 
                                             <div class="card p-3 mb-4">
                                                 <label class="form-label fw-bold"><i class="fa fa-image"></i> Hình ảnh</label>
                                                 <input type="file" class="form-control" name="image">
-                                                <img src="example.jpg" class="img-fluid mt-2" alt="Hình sách">
+                                                <img src="../resources/public/images/upload/{{ $book->image }}" class="img-fluid w-25 mt-2 d-block mx-auto" alt="Hình sách">
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary w-100"><i class="fa fa-save"></i> Lưu thay đổi</button>
+                                            <button name="saveEditBook" type="submit" class="btn btn-primary w-100"><i class="fa fa-save"></i> Lưu thay đổi</button>
                                         </div>
                                     </div>
                                 </form>

@@ -55,62 +55,62 @@ $router->mount('', function () use (
     $router->get('dashboard', function () use ($dashboardController) {
         $dashboardController->index();
     });
-    $router->get('/books', function () use ($bookController) {
+    $router->get('books', function () use ($bookController) {
         $bookController->ListBooks();
     });
 
-    $router->get('/form-add-book', function () use ($bookController) {
+    $router->get('form-add-book', function () use ($bookController) {
         $bookController->FormAddBook();
     });
 
-    $router->post('/add-book', function () use ($bookController) {
+    $router->post('add-book', function () use ($bookController) {
         $bookController->AddBook();
     });
 
-    $router->get('/form-edit-book/{id}', function ($params) use ($bookController) {
+    $router->get('form-edit-book/{id}', function ($params) use ($bookController) {
         $bookController->FormEditBook($params);
     });
-    $router->post('/edit-book/{id}', function ($params) use ($bookController) {
+    $router->post('edit-book/{id}', function ($params) use ($bookController) {
         $bookController->EditBook($params);
     });
 
-    $router->get('/delete-book/{id}', function ($params) use ($bookController) {
+    $router->get('delete-book/{id}', function ($params) use ($bookController) {
         $bookController->DeleteBook($params);
     });
 
-    $router->get('/restore-book/{id}', function ($params) use ($bookController) {
+    $router->get('restore-book/{id}', function ($params) use ($bookController) {
         $bookController->RestoreBook($params);
     });
 
-    $router->get('/detail-book/{id}', function ($params) use ($bookController) {
+    $router->get('detail-book/{id}', function ($params) use ($bookController) {
         $bookController->DetailBook($params);
     });
 
-    $router->get('/category', function () use ($categoryController) {
+    $router->get('category', function () use ($categoryController) {
         $categoryController->ListCategory();
     });
 
-    $router->get('/form-add-category', function () use ($categoryController) {
+    $router->get('form-add-category', function () use ($categoryController) {
         $categoryController->FormAddCategory();
     });
 
-    $router->post('/add-category', function () use ($categoryController) {
+    $router->post('add-category', function () use ($categoryController) {
         $categoryController->AddCategory();
     });
 
-    $router->get('/bill', function () use ($billController) {
+    $router->get('bill', function () use ($billController) {
         $billController->ListBill();
     });
 
-    $router->get('/author', function () use ($authorController) {
+    $router->get('author', function () use ($authorController) {
         $authorController->ListAuthor();
     });
 
-    $router->get('/form-add-author', function () use ($authorController) {
+    $router->get('form-add-author', function () use ($authorController) {
         $authorController->FormAddAuthor();
     });
 
-    $router->post('/add-author', function () use ($authorController) {
+    $router->post('add-author', function () use ($authorController) {
         $authorController->AddAuthor();
     });
 

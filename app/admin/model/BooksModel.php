@@ -1,7 +1,9 @@
 <?php
 
-namespace App\admin\model; 
+namespace App\admin\model;
+
 use App\admin\Model\Model;
+
 class BooksModel extends Model
 {
     protected $table = 'books';
@@ -44,7 +46,15 @@ class BooksModel extends Model
 
     public function AddBook($params)
     {
-        $this->setSQL("INSERT INTO {$this->table} (title, author_id, category_id, price, quantity,description ,image) VALUES (?,?,?,?,?,?,?)");
+        $this->setSQL("INSERT INTO {$this->table} (title, author_id, category_id, price, quantity,description, status ,image) VALUES (?,?,?,?,?,?,?,?)");
+        return $this->execute($params);
+    }
+
+    public function UpdateBook($params)
+    {
+        $book_id = array_shift($params);
+        $this->setSQL("UPDATE {$this->table} SET title = ?, author_id = ?, category_id = ?, price = ?, quantity = ?, description = ?,status=?, image = ? WHERE book_id = ?");
+        $params[] = $book_id;
         return $this->execute($params);
     }
 
@@ -56,7 +66,7 @@ class BooksModel extends Model
 
     public function RestoreBook($params)
     {
-        $this -> setSQL('UPDATE books SET status = 1 WHERE book_id = ?');
+        $this->setSQL('UPDATE books SET status = 1 WHERE book_id = ?');
         return $this->execute([$params]);
     }
 }

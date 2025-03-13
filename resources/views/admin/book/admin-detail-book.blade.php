@@ -71,27 +71,31 @@
 
                                 <!-- Ảnh Sách -->
                                 <div class="text-center mb-4">
-                                    <img src="assets/images/sample-book.jpg" alt="Ảnh sách" class="book-image">
+                                    <img src="../resources/public/images/upload/{{ $book->image }}" alt="Ảnh sách" class="book-image">
                                 </div>
-
                                 <!-- Thông tin chi tiết -->
-                                <div class="detail-row"><strong>ID Sách:</strong> <span>1</span></div>
-                                <div class="detail-row"><strong>Tiêu đề:</strong> <span>Cuốn Sách Hay Nhất</span></div>
-                                <div class="detail-row"><strong>Tác giả:</strong> <span>Nguyễn Văn A</span></div>
-                                <div class="detail-row"><strong>Danh mục:</strong> <span>Văn học</span></div>
-                                <div class="detail-row"><strong>Giá:</strong> <span>150.000đ</span></div>
-                                <div class="detail-row"><strong>Số lượng:</strong> <span>10</span></div>
-                                <div class="detail-row"><strong>Trạng thái:</strong> <span class="status-active">✔ Còn hàng</span></div>
-                                <div class="detail-row"><strong>Ngày tạo:</strong> <span>2024-03-06 14:30:00</span></div>
-                                <div class="detail-row"><strong>Ngày cập nhật:</strong> <span>2024-03-06 15:00:00</span></div>
-
+                                <div class="detail-row"><strong>ID Sách:</strong> <span>{{ $book->book_id }}</span></div>
+                                <div class="detail-row"><strong>Tiêu đề:</strong> <span>{{ $book->title }}</span></div>
+                                <div class="detail-row"><strong>Tác giả:</strong> <span>@foreach ( $authors as $auth )
+                                        @if($book -> author_id == $auth -> author_id)
+                                        {{ $auth -> name }}
+                                        @endif
+                                        @endforeach</span></div>
+                                <div class="detail-row"><strong>Danh mục:</strong> <span>@foreach ( $categories as $category )
+                                        @if($book -> category_id == $category -> category_id)
+                                        {{ $category -> name }}
+                                        @endif
+                                        @endforeach</span></div>
+                                <div class="detail-row"><strong>Giá:</strong> <span>{{ $book->price }}</span></div>
+                                <div class="detail-row"><strong>Số lượng:</strong> <span>{{ $book->quantity }}</span></div>
+                                <div class="detail-row"><strong>Trạng thái:</strong> <span class="status-active">@if($book->status == 1) ✔Active @else ✘ Inactive @endif </span></div>
+                                <div class="detail-row"><strong>Ngày tạo:</strong> <span>{{ $book->created_at }}</span></div>
+                                <div class="detail-row"><strong>Ngày cập nhật:</strong> <span>{{ $book->updated_at }}</span></div>
                                 <hr>
 
                                 <!-- Mô tả -->
                                 <h4>Mô tả</h4>
-                                <p>
-                                    Đây là một cuốn sách rất hay, mang đến nhiều giá trị về cuộc sống và kiến thức chuyên sâu về lĩnh vực văn học.
-                                </p>
+                                {{ $book->description }}
                             </div>
 
                         </div>

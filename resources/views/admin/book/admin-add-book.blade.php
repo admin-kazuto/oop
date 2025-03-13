@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Book Image:</label>
-                                    <input  name="image" type="file" class="form-control p-2 bg-white border">
+                                    <input name="image" type="file" class="form-control p-2 bg-white border">
                                 </div>
                                 <div class="form-group">
                                     <label>Book Price:</label>
@@ -59,6 +59,11 @@
                                 <div class="form-group">
                                     <label>Book Description:</label>
                                     <textarea name="description" type="text" class="form-control bg-white border"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Status: </label>
+                                    <input type="hidden" name="status" value="0">
+                                    <input name="status" type="checkbox" class="form-check-input" value="1" checked>
                                 </div>
                                 <div class="d-flex gap-2">
                                     <button name="reset" type="submit" class="btn btn-danger">Reset</button>

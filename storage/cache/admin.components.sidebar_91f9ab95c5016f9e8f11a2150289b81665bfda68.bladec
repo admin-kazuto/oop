@@ -5,13 +5,13 @@
  <!--Logo start-->
  <div class="logo-main ">
  <img class="logo-normal img-fluid "
- src="resources/public/images/logo.png" height="30" alt="logo">
+ src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>resources/public/images/logo.png" height="30" alt="logo">
  <img class="logo-color img-fluid "
- src="resources/public/images/logo-white.png" height="30" alt="logo">
+ src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>resources/public/images/logo-white.png" height="30" alt="logo">
  <img class="logo-mini img-fluid"
- src="resources/public/images/logo-mini.png" alt="logo">
+ src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>resources/public/images/logo-mini.png" alt="logo">
  <img class="logo-mini-white img-fluid"
- src="resources/public/images/logo-mini-white.png" alt="logo">
+ src="<?= dirname($_SERVER['SCRIPT_NAME']) ?>resources/public/images/logo-mini-white.png" alt="logo">
  </div>
  <!--logo End-->
  </a>
@@ -67,7 +67,9 @@
  </svg>
  </i>
  </a>
- <?php $currentURL = $_SERVER['REQUEST_URI']; ?>
+ <?php $currentURL = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+ $currentURL = preg_replace('/\/\d+$/', '', $currentURL);
+ ?>
  <ul class="sub-nav collapse" id="Admin" data-bs-parent="#sidebar-menu">
  <li class="nav-item">
  <a
@@ -114,8 +116,8 @@
  </a>
  </li>
  <li class="nav-item">
- <a
- class="nav-link <?= ($currentURL === '/books' || $currentURL === '/form-add-book') ? 'active' : '' ?> "
+ <a  
+ class="nav-link <?=  ($currentURL === '/books' || $currentURL === '/form-add-book' || $currentURL === '/detail-book' || $currentURL === '/form-edit-book') ? 'active' : '' ?> "
  aria-current="page"
  href="/books">
  <i class="icon" data-bs-toggle="tooltip" title="Books"
@@ -149,3 +151,4 @@
  <hr class="hr-horizontal">
  </li>
 </aside>
+
