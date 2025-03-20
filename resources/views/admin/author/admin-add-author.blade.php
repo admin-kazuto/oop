@@ -8,6 +8,7 @@
     <!-- loader END -->
     @include('admin.components.sidebar')
     <main class="main-content">
+        @include('admin.components.notification')
         @include('admin.components.nav')
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div class="row">
@@ -19,29 +20,23 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="#">
+                            <form action="{{ route('add-author') }}" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label>Author Name:</label>
-                                    <input type="text" class="form-control p-2 bg-white border">
+                                    <label>Name:</label>
+                                    <input name="name" type="text" class="form-control p-2 bg-white border">
                                 </div>
                                 <div class="form-group">
-                                    <label>Author Profile:</label>
-                                    <input type="file" class="form-control p-2 bg-white border">
-
-
+                                    <label>Email:</label>
+                                    <input name="email" type="text" class="form-control p-2 bg-white border">
                                 </div>
                                 <div class="form-group">
-                                    <label>Author Email:</label>
-                                    <input type="text" class="form-control p-2 bg-white border">
-                                </div>
-                                <div class="form-group">
-                                    <label>Author Description:</label>
-                                    <textarea type="text" class="form-control bg-white border"></textarea>
+                                    <label>Bio:</label>
+                                    <textarea name="bio" id="editor" name="description"></textarea>
                                 </div>
 
                                 <div class="d-flex gap-2">
-                                    <button type="submit" class="btn btn-danger">Reset</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button  type="submit" class="btn btn-danger">Reset</button>
+                                    <button name="add_author" type="submit" class="btn btn-primary">Save</button>
                                 </div>
 
                             </form>

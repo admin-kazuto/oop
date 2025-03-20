@@ -103,9 +103,9 @@
  </li>
  <li class="nav-item">
  <a
- class="nav-link <?= ($currentURL === '/author' || $currentURL === '/form-add-author') ? 'active' : '' ?>"
+ class="nav-link <?= ($currentURL === '/authors' || $currentURL === '/form-add-author') ? 'active' : '' ?>"
  aria-current="page"
- href="/author">
+ href="/authors">
  <i class="icon" data-bs-toggle="tooltip" title="Authors"
  data-bs-placement="right">
  <i class="ph-duotone ph-identification-badge"></i>

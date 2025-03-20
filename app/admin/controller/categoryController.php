@@ -16,8 +16,8 @@ class CategoryController extends controller
 
     public function ListCategory()
     {
-        $categoies = $this->CategoryController->getAll();
-        return $this->view('admin.category');
+        // $categoies = $this->CategoryController->getAll();
+        // return $this->view('admin.categiory.category');
     }
 
     public function FormAddCategory()

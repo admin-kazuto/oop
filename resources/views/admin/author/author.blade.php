@@ -9,6 +9,7 @@
     <!-- loader END -->
     @include('admin.components.sidebar')
     <main class="main-content">
+        @include('admin.components.notification')
         @include('admin.components.nav')
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div class="row ">
@@ -19,7 +20,7 @@
                                 <h4 class="mb-0">Author Lists</h4>
                             </div>
                             <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <a href="{{ route('form-add-author') }}" class="btn btn-primary">Add New Author</a>
+                                <a href="{{ route('form-add-author') }}" class="btn btn-primary">Add New</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -29,25 +30,24 @@
                                     <thead class="">
                                         <tr class="bg-white">
                                             <th scope="col" class="border-bottom bg-primary text-white">No</th>
-                                            <th scope="col" class="border-bottom bg-primary text-white">Profile</th>
-                                            <th scope="col" class="border-bottom bg-primary text-white">Author Name</th>
-                                            <th scope="col" class="border-bottom bg-primary text-white">Author Email</th>
+                                            <th scope="col" class="border-bottom bg-primary text-white">Name</th>
+                                            <th scope="col" class="border-bottom bg-primary text-white">Email</th>
                                             <th scope="col"
-                                                class="border-bottom bg-primary text-white author-desc custom-column-width">Author
-                                                Description</th>
+                                                class="border-bottom bg-primary text-white author-desc custom-column-width">Bio</th>
                                             <th scope="col" class="border-bottom bg-primary text-white">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="../assets/images/avatars/01.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Jhone Steben</td>
-                                            <td>Jhone.Steben12@gmail.com</td>
+                                       <?php $i=1 ?>
+                                       @foreach( $authors as $author)
+
+                                       <tr>
+                                            <td>{{ $i++ }}</td>
+                                            
+                                            <td>{{ $author->author_name }}</td>
+                                            <td>{{ $author->author_email }}</td>
                                             <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+                                                {{ $author->author_bio }}
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-1 align-items-center list-user-action">
@@ -62,223 +62,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td><img src="../assets/images/avatars/02.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>John Klok</td>
-                                            <td>John.Klok12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>3</td>
-                                            <td><img src="../assets/images/avatars/03.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Ichae Semos</td>
-                                            <td>Ichae.Semos12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>4</td>
-                                            <td><img src="../assets/images/avatars/04.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Jules Boutin</td>
-                                            <td>Jules.Boutin12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle  rounded" data-toggle="tooltip" data-placement="top"
-                                                        title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle  rounded" data-toggle="tooltip" data-placement="top"
-                                                        title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>5</td>
-                                            <td><img src="../assets/images/avatars/05.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Kusti Franti</td>
-                                            <td>Kusti.Franti12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
-                                                        title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>6</td>
-                                            <td><img src="../assets/images/avatars/06.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>David King</td>
-                                            <td>David.King12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>7</td>
-                                            <td><img src="../assets/images/avatars/07.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Henry Jurk</td>
-                                            <td>Henry.Jurk12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle rounded" data-toggle="tooltip" data-placement="top"
-                                                        title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>8</td>
-                                            <td><img src="../assets/images/avatars/08.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Attilio Marzi</td>
-                                            <td>Attilio.Marzi12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>9</td>
-                                            <td><img src="../assets/images/avatars/09.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Argele Intili</td>
-                                            <td>Argele.Intili12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>10</td>
-                                            <td><img src="../assets/images/avatars/10.jpg" class="img-fluid avatar-50 rounded"
-                                                    alt=""></td>
-                                            <td>Attilio Marzi</td>
-                                            <td>Attilio.Marzi12@gmail.com</td>
-                                            <td class="author-desc">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle delete-btn  rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
+                                        @endforeach
 
 
                                     </tbody>

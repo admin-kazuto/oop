@@ -14,23 +14,32 @@ class AuthorController extends controller
 
     public function ListAuthor()
     {
-        $author = $this->AuthorController->getAllAuthor();
-        return $this->view('admin.author');
+        $authors = $this->AuthorController->getAllAuthor();
+        return $this->view('admin.author.author', compact('authors'));
     }
-    public function FormAddAuthor(){
-        return $this->view('admin.admin-add-author');
+    public function FormAddAuthor()
+    {
+        return $this->view('admin.author.admin-add-author');
     }
     public function AddAuthor()
     {
-        if (isset($_POST['add_author'])) {
+        if (isset($_POST['add_author']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
             $params = [];
             foreach ($_POST as $key => $value) {
                 if ($key != 'add_author') {
-                    $params[] = $value;
+                    $params[] = strip_tags($value);
                 }
             }
-            // $this->AuthorController->add($params);
+            if ($this->AuthorController->isAuthorExist($params[0], $params[1])) {
+                notification('error', 'Tác giả đã tồn tại', 'form-add-author');
+            } else {
+                if (count($params) == 3 && !empty($params[0]) && !empty($params[1]) && !empty($params[2])) {
+                    $this->AuthorController->AddAuthor($params);
+                    notification('success', 'Thêm tác giả thành công', 'form-add-author');
+                } else {
+                    notification('error', 'Vui lòng nhập đầy đủ thông tin', 'form-add-author');
+                }
+            }
         }
-        return $this->view('admin.author');
     }
 }

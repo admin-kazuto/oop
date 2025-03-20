@@ -102,7 +102,7 @@ $router->mount('', function () use (
         $billController->ListBill();
     });
 
-    $router->get('author', function () use ($authorController) {
+    $router->get('authors', function () use ($authorController) {
         $authorController->ListAuthor();
     });
 

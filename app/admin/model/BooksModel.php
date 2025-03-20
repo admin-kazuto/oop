@@ -15,7 +15,7 @@ class BooksModel extends Model
 
     public function GetAllWithCategoryAndAuthor()
     {
-        $sql = "SELECT {$this->table}.*, categories.name AS category_name, authors.name AS author_name FROM books JOIN categories ON books.category_id = categories.category_id JOIN authors ON books.author_id = authors.author_id;";
+        $sql = "SELECT {$this->table}.*, categories.name AS category_name, authors.author_name AS author_name FROM books JOIN categories ON books.category_id = categories.category_id JOIN authors ON books.author_id = authors.author_id;";
         $this->setSQL($sql);
         return $this->all();
     }
@@ -68,5 +68,9 @@ class BooksModel extends Model
     {
         $this->setSQL('UPDATE books SET status = 1 WHERE book_id = ?');
         return $this->execute([$params]);
+    }
+
+    public function isBookExist($params){
+        
     }
 }
