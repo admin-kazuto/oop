@@ -4,6 +4,7 @@ namespace App\admin\Controller;
 
 use App\admin\Model\AuthorModel;
 
+
 class AuthorController extends controller
 {
     private $AuthorController;
@@ -42,4 +43,31 @@ class AuthorController extends controller
             }
         }
     }
+
+    public function DeleteAuthor($params){
+        $status = $this->AuthorController->getAuthorById($params)-> status;
+        if($status == 1){
+            $this->AuthorController->DeleteAuthor($params);
+            notification('success', 'Xóa tác giả thành công', 'authors');
+        } else {
+            notification('error', 'Tác giả đã bị xóa rồi thằng mù', 'authors');
+        }
+        
+    }
+
+    public function RestoreAuthor($params){
+        $status = $this->AuthorController->getAuthorById($params)-> status;
+        if($status == 0){
+            $this->AuthorController->RestoreAuthor($params);
+            notification('success', 'Khoi phuc tac gia thanh cong', 'authors');
+        } else {
+            notification('error', 'Tac gia da bi khoi phuc roi', 'authors');
+        }
+    }
+
+    public function FormEditAuthor($params){
+        $author = $this -> AuthorController -> getAuthorById($params);
+        return $this->view('admin.author.admin-edit-author', compact('author'));
+    }
+
 }

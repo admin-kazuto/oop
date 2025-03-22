@@ -1008,7 +1008,7 @@ li.checkout-product:last-child {
   text-overflow: ellipsis;
 }
 .author-desc {
-  max-width: 1050px;
+  max-width: 1000px;
   white-space: nowrap;
   overflow: hidden;
   -o-text-overflow: ellipsis;

@@ -40,32 +40,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>General Books</td>
+                                        @foreach ($categories as $category )
+                                        <tr><?php $i = 1 ?>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $category->name }}</td>
                                             <td>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>History Books</td>
-                                            <td>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
+                                                {{ $category->description }}
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-1 align-items-center list-user-action">
@@ -80,166 +60,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Horror Story</td>
-                                            <td>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Arts Books</td>
-                                            <td>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Film & Photography</td>
-                                            <td>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Business & Economics</td>
-                                            <td class="">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Comics & Mangas</td>
-                                            <td class="">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Computers & Internet</td>
-                                            <td class="">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Sports</td>
-                                            <td class="">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Travel & Tourism</td>
-                                            <td class="">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus non elit a
-                                                scelerisque. <br>Etiam feugiat luctus est, vel commodo odio rhoncus sit amet.
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-1 align-items-center list-user-action">
-                                                    <a class="bg-success-subtle   rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit" href="#">
-                                                        <i class="ph ph-pencil-simple text-success custom-ph-icons"></i>
-                                                    </a>
-                                                    <a class="bg-danger-subtle delete-btn rounded" data-toggle="tooltip"
-                                                        data-placement="top" title="Delete" href="#">
-                                                        <i class="ph ph-trash text-danger custom-ph-icons"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

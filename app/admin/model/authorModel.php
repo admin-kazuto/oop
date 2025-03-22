@@ -13,6 +13,11 @@ class AuthorModel extends Model{
         return $this->all();
     }
 
+    public function getAuthorById($params){
+        $this -> setSQL("SELECT * FROM {$this->table} WHERE author_id = ?");
+        return $this->first([$params]);
+    }
+
     public function AddAuthor($params){
         $this->setSQL("INSERT INTO {$this->table} (author_name, author_email, author_bio) VALUES (?, ?, ?)");
         return $this->execute($params);
@@ -21,6 +26,16 @@ class AuthorModel extends Model{
     public function isAuthorExist($author, $email){
         $this->setSQL("SELECT * FROM {$this->table} WHERE author_name = ? OR author_email = ?");
         return $this->all([$author, $email]);
+    }
+    
+    public function DeleteAuthor($params){
+        $this->setSQL("UPDATE {$this->table} SET status = 0 WHERE author_id = ?");
+        return $this->execute([$params]);
+    }
+
+    public function RestoreAuthor($params){
+        $this->setSQL("UPDATE {$this->table} SET status = 1 WHERE author_id = ?");
+        return $this->execute([$params]);
     }
 }
 ?>

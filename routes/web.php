@@ -114,9 +114,23 @@ $router->mount('', function () use (
         $authorController->AddAuthor();
     });
 
+    $router->get('delete-author/{id}', function ($params) use ($authorController) {
+        $authorController->DeleteAuthor($params);
+    });
+
+    $router->get('restore-author/{id}', function ($params) use ($authorController) {
+       $authorController->RestoreAuthor($params); 
+    });
+
+    $router->get('form-edit-author/{id}', function ($params) use ($authorController) {
+        $authorController->FormEditAuthor($params);
+    });
+
     $router->get('/', function () use ($homeController) {
         $homeController->Home();
     });
+
+    
 });
 // Xử lý lỗi 404
 $router->set404(function () {
