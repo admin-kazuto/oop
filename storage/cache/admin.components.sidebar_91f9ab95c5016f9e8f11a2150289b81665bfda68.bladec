@@ -75,7 +75,7 @@
  <a
  class="nav-link <?= ($currentURL === '/dashboard') ? 'active' : '' ?>"
  aria-current="page"
- href="/">
+ href="/dashboard">
  <i class="icon" data-bs-toggle="tooltip" title="Dashboard"
  data-bs-placement="right">
  <i class="ph-duotone ph-gauge"></i>
@@ -132,7 +132,7 @@
 
  <li class="nav-item">
  <a
- class="nav-link <?= ($currentURL === '/bill') ? 'active' : '' ?> "
+ class="nav-link <?= ($currentURL === '/bill' || $currentURL === '/detail-bill') ? 'active' : '' ?> "
  aria-current="page"
  href="/bill">
  <i class="icon" data-bs-toggle="tooltip" title="Bills"

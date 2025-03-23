@@ -102,6 +102,10 @@ $router->mount('', function () use (
         $billController->ListBill();
     });
 
+    $router->get('detail-bill/{id}', function ($params) use ($billController) {
+        $billController->DetailBill($params);
+    });
+
     $router->get('authors', function () use ($authorController) {
         $authorController->ListAuthor();
     });

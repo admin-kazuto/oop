@@ -9,7 +9,7 @@ class BookController extends controller
     private $BookController;
     public function __construct()
     {
-        $this->BookController = new BooksModel(); 
+        $this->BookController = new BooksModel();
     }
 
     public function ListBooks()
@@ -65,8 +65,8 @@ class BookController extends controller
                     $params[] = $fileName;
                     move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
                 }
-                if($this->BookController->isBookExist($params[0])){
-                    notification('errol','sách đã tồn tại', 'form-add-book');
+                if ($this->BookController->isBookExist($params[0])) {
+                    notification('errol', 'sách đã tồn tại', 'form-add-book');
                 } else {
                     if (count($params) == 8 && !empty($params[0]) && !empty($params[1]) && !empty($params[2]) && !empty($params[3]) && !empty($params[4]) && !empty($params[5]) && !empty($params[6]) && !empty($params[7])) {
                         $this->BookController->AddBook($params);

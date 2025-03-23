@@ -13,7 +13,13 @@ class BillController extends controller
     }
     public function ListBill()
     {
-        $Bills = $this -> BillController -> getAll();
-        return $this->view('admin.bill');
+        $Bills = $this -> BillController -> getAllBill();
+        return $this->view('admin.bill.bill',compact('Bills'));
     }
+
+    function DetailBill($params){
+        $Bill = $this -> BillController -> getBillById($params);
+        return $this->view('admin.bill.bill-detail',compact('Bill'));
+    }
+    
 }
